@@ -326,6 +326,16 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        @media (min-width: 768px) {
+            .md\:no-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+            .md\:no-scrollbar {
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+        }
     </style>
 </head>
 
@@ -493,21 +503,21 @@
     <!-- =============== FILTER TABS (interactive class categories) =============== -->
     <section class="pb-8">
         <div class="container mx-auto px-6">
-            <div class="flex overflow-x-auto no-scrollbar md:flex-wrap justify-start md:justify-center gap-3 pb-4 -mx-6 px-6 md:mx-0 md:px-0">
+            <div class="flex flex-wrap justify-center gap-3 pb-4">
                 <button
-                    class="filter-btn active-filter px-6 py-2 rounded-full bg-terracotta text-white font-medium transition-all whitespace-nowrap"
+                    class="filter-btn active-filter px-6 py-2 rounded-full bg-terracotta text-white font-medium transition-all"
                     data-filter="all">All Classes</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
                     data-filter="beginner">Beginner</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
                     data-filter="intermediate">Intermediate</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
                     data-filter="advanced">Advanced</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
                     data-filter="specialty">Specialty</button>
             </div>
         </div>
@@ -695,7 +705,7 @@
                 <p class="text-dusk dark:text-gray-300 max-w-lg mx-auto">Drop in anytime — all levels welcome. See
                     what's spinning this week!</p>
             </div>
-            <div class="max-w-5xl mx-auto overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-auto md:px-0">
+            <div class="max-w-5xl mx-auto overflow-x-auto -mx-6 px-6 md:mx-auto md:px-0 md:no-scrollbar">
                 <table class="w-full border-collapse min-w-[700px]">
                     <thead>
                         <tr class="border-b-2 border-terracotta/30">
