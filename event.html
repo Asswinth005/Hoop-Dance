@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Hoops & Flow — Hula Hoop Dance Events & Workshops</title>
+    <!-- Custom Favicon - Hula Hoop -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23E07A5F'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23F4F1DE'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23E07A5F'/%3E%3Cpath fill='%2381B29A' d='M50 25 L56 40 L72 40 L60 50 L66 65 L50 55 L34 65 L40 50 L28 40 L44 40 Z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#E07A5F',
+                        slate: '#3D405B',
+                        sage: '#81B29A',
+                        cream: '#F4F1DE',
+                        dusk: '#6D6875',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'hoop-spin': 'hoopSpin 3s linear infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'marquee': 'marquee 20s linear infinite',
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        spinSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        hoopSpin: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.05)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.7' },
+                            '50%': { opacity: '1' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                    },
+                    backgroundImage: {
+                        'warm-pattern': "radial-gradient(circle at 10% 30%, rgba(224, 122, 95, 0.06) 0%, transparent 60%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #2D2A3A;
+        }
+
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8E4D8;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #E07A5F;
+            border-radius: 10px;
+        }
+
+        .studio-card {
+            background: white;
+            border-radius: 28px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(224, 122, 95, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .studio-card {
+            background: #3D3B4D;
+            border-color: rgba(224, 122, 95, 0.25);
+        }
+
+        .studio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(224, 122, 95, 0.3);
+            border-color: #E07A5F;
+        }
+
+        .btn-primary {
+            background-color: #E07A5F;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #C56A4F;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #E07A5F;
+            color: #E07A5F;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #E07A5F;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-studio {
+            position: relative;
+        }
+
+        .dropdown-studio-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid #E07A5F20;
+        }
+
+        .dark .dropdown-studio-menu {
+            background: #3D3B4D;
+            border-color: #E07A5F40;
+        }
+
+        .dropdown-studio:hover .dropdown-studio-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #3D405B;
+        }
+
+        .dark .dropdown-item {
+            color: #F4F1DE;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            padding-left: 1.7rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .mobile-menu-studio {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-studio {
+            background: #2D2A3A;
+        }
+
+        .mobile-menu-studio.open {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .social-icon-studio {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            transition: all 0.3s;
+        }
+
+        .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-studio {
+            background-color: #6D6875;
+            color: #F4F1DE;
+        }
+
+        .dark .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: #2D2A3A;
+        }
+
+        /* Events page specific styles */
+        .event-card {
+            transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .event-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .date-badge {
+            background: linear-gradient(135deg, #E07A5F 0%, #C56A4F 100%);
+        }
+
+        .countdown-timer {
+            font-family: 'Inter', monospace;
+            letter-spacing: 1px;
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 2rem;
+            animation: marquee 22s linear infinite;
+            width: max-content;
+        }
+
+        .festival-card {
+            transition: all 0.3s ease;
+        }
+
+        .festival-card:hover {
+            transform: scale(1.02);
+        }
+
+        .past-event-card {
+            filter: grayscale(0.1);
+            transition: all 0.3s;
+        }
+
+        .past-event-card:hover {
+            filter: grayscale(0);
+            transform: translateY(-4px);
+        }
+
+        .category-tab {
+            transition: all 0.2s ease;
+        }
+
+        .category-tab.active {
+            background-color: #E07A5F;
+            color: white;
+            border-color: #E07A5F;
+        }
+    </style>
+</head>
+
+<body class="warm-pattern overflow-x-hidden">
+
+    <!-- Navigation - Clean with terracotta accents -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#2D2A3A]/95 backdrop-blur-md border-b border-cream dark:border-dusk/30 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo with hoop spin -->
+                <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+                    <div
+                        class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 hoop-icon">
+                        <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-slate dark:text-white">HOOP&FLOW</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation & Right Actions Wrapper -->
+                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto">
+                    <!-- Desktop Navigation Links -->
+                    <div class="hidden lg:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-studio">
+                            <button
+                                class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </button>
+                            <div class="dropdown-studio-menu">
+                                <a class="dropdown-item" href="index.html"> Home 1</a>
+                                <a class="dropdown-item" href="home2.html"> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="about.html">About</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="class.html">Classes</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="service.html">Services</a>
+                        <a class="nav-link text-terracotta font-medium transition whitespace-nowrap text-sm xl:text-base"
+                            href="event.html">Events</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="gallery.html">Gallery</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="book.html">Book Now</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="contact.html">Contact</a>
+                    </div>
+
+                    <!-- Desktop Actions (3 Icons) -->
+                    <div class="hidden lg:flex items-center gap-4 ml-2">
+                        <!-- Auth Dropdown -->
+                        <div class="dropdown-studio">
+                            <button
+                                class="w-10 h-10 rounded-full bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-white transition flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <div class="dropdown-studio-menu" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                                <a class="dropdown-item" href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                            </div>
+                        </div>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+
+                        <!-- RTL/LTR Toggle Button -->
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center font-bold text-base"
+                            title="Toggle RTL/LTR Direction">
+                            ⇄
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-studio lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-slate dark:text-gray-200 border-l-4 border-transparent hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition cursor-pointer">
+                            <span>Home</span>
+                            <i id="home-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="index.html"><i class="fas fa-home w-6"></i> Home 1</a>
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="home2.html"><i class="fas fa-spa w-6"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="class.html">Classes</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="service.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-terracotta bg-terracotta/5 border-l-4 border-terracotta rounded-xl transition"
+                        href="event.html">Events</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="gallery.html">Gallery</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="book.html">Book Now</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream dark:border-dusk/40">
+                        <a class="text-center py-2 rounded-full font-medium text-terracotta border border-terracotta"
+                            href="login.html">Log in</a>
+                        <a class="text-center btn-primary py-2 rounded-full" href="signup.html">Sign Up Free</a>
+                        <div class="flex gap-3">
+                            <!-- Mobile Theme Toggle -->
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                                Theme
+                            </button>
+                            <!-- Mobile RTL toggle -->
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                ⇄ RTL Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- =============== EVENTS HERO SECTION =============== -->
+    <section class="pt-32 md:pt-40 relative overflow-hidden min-h-[80vh] md:min-h-screen flex flex-col justify-between">
+        <div class="flex-1 flex items-center justify-center w-full pb-16">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center animate-slide-up">
+                    <div
+                        class="inline-flex items-center gap-2 px-5 py-2 bg-terracotta/10 rounded-full mb-6 border border-terracotta/25">
+                        <i class="fas fa-calendar-star text-terracotta"></i>
+                        <span class="text-sm font-semibold text-slate dark:text-white">Come Together & Flow</span>
+                    </div>
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-slate dark:text-white leading-tight">
+                        Upcoming <span class="text-terracotta">Hoop Events</span></h1>
+                    <p class="text-lg md:text-xl text-dusk dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">From
+                        LED hoop jams to immersive workshops and community festivals — find your next flow experience
+                        with us.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============== MARQUEE TICKER =============== -->
+        <div
+            class="w-full bg-terracotta/10 dark:bg-slate/40 py-3 overflow-hidden whitespace-nowrap border-y border-terracotta/20 mt-auto">
+            <div class="marquee-track inline-flex text-slate dark:text-white font-medium text-sm">
+                <span class="mx-6"><i class="fas fa-fire text-terracotta"></i> NEXT EVENT: LED HOOP NIGHT - MARCH
+                    25TH</span>
+                <span class="mx-6"><i class="fas fa-ticket-alt text-terracotta"></i> EARLY BIRD TICKETS ON SALE
+                    NOW</span>
+                <span class="mx-6"><i class="fas fa-hand-peace text-terracotta"></i> FREE COMMUNITY JAM EVERY
+                    SUNDAY</span>
+                <span class="mx-6"><i class="fas fa-fire text-terracotta"></i> NEXT EVENT: LED HOOP NIGHT - MARCH
+                    25TH</span>
+                <span class="mx-6"><i class="fas fa-ticket-alt text-terracotta"></i> EARLY BIRD TICKETS ON SALE
+                    NOW</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== CATEGORY TABS =============== -->
+    <section class="pt-20 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate dark:text-white mb-4">Discover Our
+                    <span class="text-terracotta">Events</span>
+                </h2>
+                <p class="text-dusk dark:text-gray-300 max-w-2xl mx-auto">Browse through our schedule to find the
+                    perfect session for your flow journey.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button
+                    class="category-tab active px-6 py-2.5 rounded-full bg-terracotta text-white font-medium transition-all"
+                    data-cat="all">All Events</button>
+                <button
+                    class="category-tab px-6 py-2.5 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    data-cat="workshop">Workshops</button>
+                <button
+                    class="category-tab px-6 py-2.5 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    data-cat="performance">Performances</button>
+                <button
+                    class="category-tab px-6 py-2.5 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    data-cat="community">Community</button>
+                <button
+                    class="category-tab px-6 py-2.5 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    data-cat="festival">Festivals</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== FEATURED UPCOMING EVENTS =============== -->
+    <section class="py-8 pb-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="events-grid">
+                <!-- Event 1 - LED Hoop Night -->
+                <div class="event-card studio-card overflow-hidden" data-category="performance">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">🔥
+                                MAR 25</span>
+                            <span
+                                class="bg-terracotta/10 text-terracotta text-xs px-2.5 py-1 rounded-full font-medium">Limited
+                                spots</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">LED Hoop Flow Night</h3>
+                            <i class="fas fa-lightbulb text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">Experience the
+                            magic of LED hoops in a dimly lit studio. Learn light painting techniques and mesmerizing
+                            combinations. Hoops provided!</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">$35</span><span
+                                    class="text-xs text-dusk">/person</span></div>
+                            <div class="flex gap-2"><a href="#"
+                                    class="text-terracotta font-medium hover:underline text-sm font-semibold">RSVP →</a>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 7:00 PM -
+                            9:00 PM <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Main Studio
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 2 - Doubles Hoop Workshop -->
+                <div class="event-card studio-card overflow-hidden" data-category="workshop">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">🌀
+                                APR 5</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">Doubles Hoop Mastery</h3>
+                            <i class="fas fa-hand-peace text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">Take your flow to
+                            the next level! Learn isolation techniques, timing, and mesmerizing combos with two hoops.
+                            Intermediate level recommended.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">$45</span><span
+                                    class="text-xs text-dusk">/workshop</span></div>
+                            <a href="#"
+                                class="text-terracotta font-medium hover:underline text-sm font-semibold">Reserve →</a>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 2:00 PM -
+                            5:00 PM <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Flow Lab
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 3 - Family Hoop Jam -->
+                <div class="event-card studio-card overflow-hidden" data-category="community">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">🌈
+                                APR 12</span>
+                            <span class="bg-sage/20 text-sage text-xs px-2.5 py-1 rounded-full font-medium">Kids
+                                welcome</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">Family Hoop Jam</h3>
+                            <i class="fas fa-heart text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">A fun-filled
+                            afternoon for the whole family! Hoop games, beginner tricks, and joyful movement for all
+                            ages. Hoops provided for kids and adults.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">$25</span><span
+                                    class="text-xs text-dusk">/family</span></div>
+                            <a href="#" class="text-terracotta font-medium hover:underline text-sm font-semibold">Join
+                                →</a>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 11:00 AM -
+                            1:00 PM <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Studio +
+                            Garden</div>
+                    </div>
+                </div>
+
+                <!-- Event 4 - LA Flow Festival -->
+                <div class="event-card studio-card overflow-hidden" data-category="festival">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">🌟
+                                MAY 17-18</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">LA Flow Arts Festival</h3>
+                            <i class="fas fa-calendar-alt text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">Join 500+ flow
+                            artists for a weekend of workshops, performances, and community. Hoop, poi, staff, and more
+                            — all styles welcome!</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">$89</span><span
+                                    class="text-xs text-dusk">/weekend pass</span></div>
+                            <a href="#" class="text-terracotta font-medium hover:underline text-sm font-semibold">Get
+                                tickets →</a>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 10 AM - 8 PM
+                            <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Grand Park
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 5 - Mindful Hoop Retreat -->
+                <div class="event-card studio-card overflow-hidden" data-category="workshop">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">🧘
+                                JUN 8</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">Mindful Hoop Retreat</h3>
+                            <i class="fas fa-feather-alt text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">A day of slow
+                            flow, breathwork, and hoop meditation. Reconnect with yourself and find inner peace through
+                            gentle movement.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">$65</span><span
+                                    class="text-xs text-dusk">/full day</span></div>
+                            <a href="#"
+                                class="text-terracotta font-medium hover:underline text-sm font-semibold">Register →</a>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 10 AM - 4 PM
+                            <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Retreat Center
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event 6 - Weekly Community Jam -->
+                <div class="event-card studio-card overflow-hidden" data-category="community">
+                    <div class="p-6 h-full flex flex-col">
+                        <div class="flex justify-between items-start mb-5">
+                            <span class="date-badge text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-sm">✨
+                                Every Sunday</span>
+                            <span class="bg-sage/20 text-sage text-xs px-2.5 py-1 rounded-full font-medium">FREE!</span>
+                        </div>
+                        <div class="flex items-center justify-between mb-3">
+                            <h3 class="text-xl font-bold text-slate dark:text-white">Sunday Hoop Jam</h3>
+                            <i class="fas fa-users text-terracotta text-xl"></i>
+                        </div>
+                        <p class="text-dusk dark:text-gray-300 text-sm mb-6 leading-relaxed flex-grow">Our weekly free
+                            community gathering! Bring your hoop, meet flow friends, and jam together. All levels
+                            welcome — music and good vibes provided.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream dark:border-dusk/30">
+                            <div><span class="text-terracotta font-bold text-xl">FREE</span><span
+                                    class="text-xs text-dusk">/drop-in</span></div>
+                            <a href="#" class="text-terracotta font-medium hover:underline text-sm font-semibold">RSVP
+                                →</a>
+                        </div>
+                        <div class="mt-4 flex gap-2 text-xs text-dusk"><i class="fas fa-clock mt-0.5"></i> 3:00 PM -
+                            5:00 PM <span class="mx-2">•</span> <i class="fas fa-map-marker-alt mt-0.5"></i> Main Studio
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== COUNTDOWN TO NEXT EVENT SECTION =============== -->
+    <section class="py-20 bg-terracotta">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fas fa-hourglass-half text-white text-4xl mb-4 animate-pulse-soft inline-block"></i>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-2">Next Event in</h2>
+            <div class="flex justify-center gap-6 mt-6 mb-8 countdown-timer">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white" id="days">00</div>
+                    <div class="text-white/80 text-sm">Days</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white" id="hours">00</div>
+                    <div class="text-white/80 text-sm">Hours</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white" id="minutes">00</div>
+                    <div class="text-white/80 text-sm">Mins</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-white" id="seconds">00</div>
+                    <div class="text-white/80 text-sm">Secs</div>
+                </div>
+            </div>
+            <a href="#"
+                class="bg-white text-terracotta px-8 py-3 rounded-full font-bold shadow-lg hover:scale-105 transition inline-flex items-center gap-2"><i
+                    class="fas fa-ticket-alt"></i> Get Tickets for LED Hoop Night</a>
+        </div>
+    </section>
+
+
+    <!-- =============== PAST EVENT HIGHLIGHTS =============== -->
+    <section class="py-20 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <i class="fas fa-images text-terracotta text-3xl mb-3"></i>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate dark:text-white">Event <span
+                        class="text-terracotta">Highlights</span></h2>
+                <p class="text-dusk dark:text-gray-300">Relive the magic from our past gatherings</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="past-event-card rounded-2xl overflow-hidden shadow-md"><img src="/assest/win.jpg"
+                        class="w-full h-48 object-cover">
+                    <div class="p-4 bg-cream/50 dark:bg-slate/40">
+                        <h3 class="font-bold">Halloween Hoop Spooktacular</h3>
+                        <p class="text-sm text-dusk">October 2025 • 120+ attendees</p>
+                    </div>
+                </div>
+                <div class="past-event-card rounded-2xl overflow-hidden shadow-md"><img src="/assest/sum.jpg"
+                        class="w-full h-48 object-cover">
+                    <div class="p-4 bg-cream/50 dark:bg-slate/40">
+                        <h3 class="font-bold">Summer Solstice Flow</h3>
+                        <p class="text-sm text-dusk">June 2025 • Beachside jam</p>
+                    </div>
+                </div>
+                <div class="past-event-card rounded-2xl overflow-hidden shadow-md"><img src="/assest/new.jpg"
+                        class="w-full h-48 object-cover">
+                    <div class="p-4 bg-cream/50 dark:bg-slate/40">
+                        <h3 class="font-bold">New Year's Eve Hoop Drop</h3>
+                        <p class="text-sm text-dusk">December 2025 • Sold out!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== HOST YOUR OWN EVENT CTA =============== -->
+    <section class="py-20 bg-cream/60 dark:bg-slate/20">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <i class="fas fa-cake-candles text-terracotta text-4xl mb-4"></i>
+            <h2 class="text-3xl font-display font-bold text-slate dark:text-white mb-3">Host Your Event With Us</h2>
+            <p class="text-dusk mb-6">Birthday parties, bachelorettes, corporate team building, or private flow sessions
+                — we'll create a memorable hoop experience for your group.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="btn-primary px-8 py-3 rounded-full"><i class="fas fa-envelope"></i> Inquire About
+                    Private Events</a>
+                <a href="#" class="btn-outline px-8 py-3 rounded-full"><i class="fas fa-file-alt"></i> View Event
+                    Brochure</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== NEWSLETTER SIGNUP =============== -->
+    <section class="py-20 bg-terracotta">
+        <div class="container mx-auto px-6 text-center max-w-2xl">
+            <i class="fas fa-envelope-open-text text-white text-4xl mb-4"></i>
+            <h3 class="text-3xl font-bold text-white mb-3">Stay in the Flow Loop</h3>
+            <p class="text-white/90 mb-8 text-lg">Get early access to events, workshops, and special discounts.</p>
+            <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                <input type="email" placeholder="Your email address"
+                    class="flex-1 px-5 py-3.5 rounded-full border-0 focus:ring-2 focus:ring-white bg-white/20 text-white placeholder-white/80 outline-none">
+                <button
+                    class="bg-white text-terracotta px-8 py-3.5 rounded-full font-bold hover:bg-cream transition whitespace-nowrap shadow-lg">Subscribe
+                    →</button>
+            </div>
+            <p class="text-xs text-white/70 mt-4">No spam, just hoop magic. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+
+    <!-- =============== FOOTER (IDENTICAL TO REFERENCE) =============== -->
+    <footer class="bg-slate text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                        </div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-white">HOOP&FLOW</span>
+                    </div>
+                    <p class="mb-5 text-gray-400 text-sm">Where hula hoop dance meets freedom. Join our vibrant flow
+                        community today.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">About Our
+                                Studio</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Class
+                                Schedule</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Private Hoop
+                                Sessions</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Flow Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
+                                Instructor</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Studio</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-map-marker-alt text-terracotta mt-1"></i><span>42 Flow Avenue, Arts
+                                District, LA</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-phone-alt text-terracotta"></i><span>(555) 123-HOOP</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-envelope text-terracotta"></i><span>hello@hoopandflow.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-dusk/30 text-center text-sm text-gray-500">
+                <p>&copy; 2026 HOOP&FLOW | Hula Hoop Dance & Flow Arts Studio. All rights reserved. <i
+                        class="fas fa-heart text-terracotta mx-1"></i> Keep flowing, keep hooping.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL / LTR Toggle functionality with ⇄ symbol
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL) {
+                    html.setAttribute('dir', 'rtl');
+                    localStorage.setItem('dir', 'rtl');
+                } else {
+                    html.setAttribute('dir', 'ltr');
+                    localStorage.setItem('dir', 'ltr');
+                }
+            }
+
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+                    setRTL(newDir === 'rtl');
+                });
+            }
+
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+                    setRTL(newDir === 'rtl');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    if (mobileMenu && mobileMenu.classList.contains('open')) {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle && mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+
+            // Countdown timer for next event (Dynamic future date)
+            let nextEventDate = new Date().getTime() + (14 * 24 * 60 * 60 * 1000) + (7 * 60 * 60 * 1000) + (23 * 60 * 1000); // 14 days later
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const diff = nextEventDate - now;
+
+                if (diff > 0) {
+                    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                    document.getElementById('days').innerText = days.toString().padStart(2, '0');
+                    document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+                } else {
+                    document.getElementById('days').innerText = '00';
+                    document.getElementById('hours').innerText = '00';
+                    document.getElementById('minutes').innerText = '00';
+                    document.getElementById('seconds').innerText = '00';
+                }
+            }
+
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Category filtering
+            const catTabs = document.querySelectorAll('.category-tab');
+            const eventCards = document.querySelectorAll('.event-card');
+
+            catTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    catTabs.forEach(t => {
+                        t.classList.remove('active', 'bg-terracotta', 'text-white');
+                        t.classList.add('bg-white', 'dark:bg-slate/40', 'text-slate', 'dark:text-gray-300');
+                    });
+                    tab.classList.add('active', 'bg-terracotta', 'text-white');
+                    tab.classList.remove('bg-white', 'dark:bg-slate/40', 'text-slate', 'dark:text-gray-300');
+
+                    const filterCat = tab.getAttribute('data-cat');
+                    eventCards.forEach(card => {
+                        if (filterCat === 'all' || card.getAttribute('data-category') === filterCat) {
+                            card.style.display = 'block';
+                            setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.95)';
+                            setTimeout(() => { card.style.display = 'none'; }, 200);
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

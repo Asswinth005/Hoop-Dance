@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Now | Hoops & Flow — Reserve Your Hoop Class</title>
+    <!-- Custom Favicon - Hula Hoop -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23E07A5F'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23F4F1DE'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23E07A5F'/%3E%3Cpath fill='%2381B29A' d='M50 25 L56 40 L72 40 L60 50 L66 65 L50 55 L34 65 L40 50 L28 40 L44 40 Z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#E07A5F',
+                        slate: '#3D405B',
+                        sage: '#81B29A',
+                        cream: '#F4F1DE',
+                        dusk: '#6D6875',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'hoop-spin': 'hoopSpin 3s linear infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        spinSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        hoopSpin: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.05)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.7' },
+                            '50%': { opacity: '1' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                    },
+                    backgroundImage: {
+                        'warm-pattern': "radial-gradient(circle at 10% 30%, rgba(224, 122, 95, 0.06) 0%, transparent 60%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Flatpickr for date picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #2D2A3A;
+        }
+
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8E4D8;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #E07A5F;
+            border-radius: 10px;
+        }
+
+        .studio-card {
+            background: white;
+            border-radius: 28px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(224, 122, 95, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .studio-card {
+            background: #3D3B4D;
+            border-color: rgba(224, 122, 95, 0.25);
+        }
+
+        .studio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(224, 122, 95, 0.3);
+            border-color: #E07A5F;
+        }
+
+        .btn-primary {
+            background-color: #E07A5F;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #C56A4F;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #E07A5F;
+            color: #E07A5F;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #E07A5F;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-studio {
+            position: relative;
+        }
+
+        .dropdown-studio-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid #E07A5F20;
+        }
+
+        .dark .dropdown-studio-menu {
+            background: #3D3B4D;
+            border-color: #E07A5F40;
+        }
+
+        .dropdown-studio:hover .dropdown-studio-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #3D405B;
+        }
+
+        .dark .dropdown-item {
+            color: #F4F1DE;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            padding-left: 1.7rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .mobile-menu-studio {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-studio {
+            background: #2D2A3A;
+        }
+
+        .mobile-menu-studio.open {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .social-icon-studio {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            transition: all 0.3s;
+        }
+
+        .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-studio {
+            background-color: #6D6875;
+            color: #F4F1DE;
+        }
+
+        .dark .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: #2D2A3A;
+        }
+
+        /* Book Now page specific styles */
+        .booking-step {
+            transition: all 0.3s ease;
+        }
+
+        .step-number {
+            transition: all 0.3s ease;
+        }
+
+        .booking-step:hover .step-number {
+            background-color: #E07A5F;
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #E07A5F;
+            box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.2);
+        }
+
+        .class-option-card {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .class-option-card.selected {
+            border-color: #E07A5F;
+            background-color: rgba(224, 122, 95, 0.05);
+            transform: scale(1.02);
+        }
+
+        .price-card {
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .price-card.popular {
+            border: 2px solid #E07A5F;
+            box-shadow: 0 10px 30px -10px rgba(224, 122, 95, 0.4);
+        }
+
+        .flatpickr-calendar {
+            border-radius: 20px !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+
+        .flatpickr-day.selected {
+            background-color: #E07A5F !important;
+            border-color: #E07A5F !important;
+        }
+
+        .time-slot {
+            transition: all 0.2s ease;
+        }
+
+        .time-slot.selected {
+            background-color: #E07A5F;
+            color: white;
+            border-color: #E07A5F;
+        }
+
+        .time-slot:hover:not(.selected) {
+            background-color: rgba(224, 122, 95, 0.1);
+            border-color: #E07A5F;
+        }
+    </style>
+</head>
+
+<body class="warm-pattern overflow-x-hidden">
+
+    <!-- =============== HEADER (IDENTICAL TO REFERENCE) =============== -->
+    <!-- Navigation - Clean with terracotta accents -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#2D2A3A]/95 backdrop-blur-md border-b border-cream dark:border-dusk/30 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo with hoop spin -->
+                <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+                    <div
+                        class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 hoop-icon">
+                        <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-slate dark:text-white">HOOP&FLOW</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation & Right Actions Wrapper -->
+                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto">
+                    <!-- Desktop Navigation Links -->
+                    <div class="hidden lg:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-studio">
+                            <button
+                                class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </button>
+                            <div class="dropdown-studio-menu">
+                                <a class="dropdown-item" href="index.html"> Home 1</a>
+                                <a class="dropdown-item" href="home2.html"> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="about.html">About</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="class.html">Classes</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="service.html">Services</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="event.html">Events</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="gallery.html">Gallery</a>
+                        <a class="nav-link text-terracotta font-medium transition whitespace-nowrap text-sm xl:text-base"
+                            href="book.html">Book Now</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="contact.html">Contact</a>
+                    </div>
+
+                    <!-- Desktop Actions (3 Icons) -->
+                    <div class="hidden lg:flex items-center gap-4 ml-2">
+                        <!-- Auth Dropdown -->
+                        <div class="dropdown-studio">
+                            <button
+                                class="w-10 h-10 rounded-full bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-white transition flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <div class="dropdown-studio-menu" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                                <a class="dropdown-item" href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                            </div>
+                        </div>
+
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+
+                        <!-- RTL/LTR Toggle Button -->
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center font-bold text-base"
+                            title="Toggle RTL/LTR Direction">
+                            ⇄
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-studio lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-slate dark:text-gray-200 border-l-4 border-transparent hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition cursor-pointer">
+                            <span>Home</span>
+                            <i id="home-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="index.html"><i class="fas fa-home w-6"></i> Home 1</a>
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="home2.html"><i class="fas fa-spa w-6"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="class.html">Classes</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="service.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="event.html">Events</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="gallery.html">Gallery</a>
+                    <a class="block py-3 px-4 font-medium text-terracotta bg-terracotta/5 border-l-4 border-terracotta rounded-xl transition"
+                        href="book.html">Book Now</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream dark:border-dusk/40">
+                        <a class="text-center py-2 rounded-full font-medium text-terracotta border border-terracotta"
+                            href="login.html">Log in</a>
+                        <a class="text-center btn-primary py-2 rounded-full" href="signup.html">Sign Up Free</a>
+                        <div class="flex gap-3">
+                            <!-- Mobile Theme Toggle -->
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                                Theme
+                            </button>
+                            <!-- Mobile RTL toggle -->
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                ⇄ RTL Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- =============== BOOK NOW HERO SECTION =============== -->
+    <section class="pt-28 md:pt-36 pb-10 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center animate-slide-up">
+                <div
+                    class="inline-flex items-center gap-2 px-5 py-2 bg-terracotta/10 rounded-full mb-6 border border-terracotta/25">
+                    <i class="fas fa-calendar-check text-terracotta"></i>
+                    <span class="text-sm font-semibold text-slate dark:text-white">Reserve Your Spot</span>
+                </div>
+                <h1 class="text-5xl md:text-6xl font-display font-bold mb-5 text-slate dark:text-white">Book Your <span
+                        class="text-terracotta">Hoop Experience</span></h1>
+                <p class="text-lg text-dusk dark:text-gray-300 max-w-2xl mx-auto">Choose a class, pick your time, and
+                    get ready to flow. First class is free for new students!</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== 3-STEP BOOKING PROCESS =============== -->
+    <section class="py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="booking-step text-center p-5 rounded-2xl bg-white/60 dark:bg-slate/30">
+                    <div
+                        class="step-number w-12 h-12 rounded-full bg-terracotta/20 text-terracotta flex items-center justify-center text-xl font-bold mx-auto mb-3">
+                        1</div>
+                    <h3 class="font-bold text-slate dark:text-white">Pick a Class</h3>
+                    <p class="text-sm text-dusk">Choose your flow style & level</p>
+                </div>
+                <div class="booking-step text-center p-5 rounded-2xl bg-white/60 dark:bg-slate/30">
+                    <div
+                        class="step-number w-12 h-12 rounded-full bg-terracotta/20 text-terracotta flex items-center justify-center text-xl font-bold mx-auto mb-3">
+                        2</div>
+                    <h3 class="font-bold text-slate dark:text-white">Select Date & Time</h3>
+                    <p class="text-sm text-dusk">Find a slot that works for you</p>
+                </div>
+                <div class="booking-step text-center p-5 rounded-2xl bg-white/60 dark:bg-slate/30">
+                    <div
+                        class="step-number w-12 h-12 rounded-full bg-terracotta/20 text-terracotta flex items-center justify-center text-xl font-bold mx-auto mb-3">
+                        3</div>
+                    <h3 class="font-bold text-slate dark:text-white">Confirm & Pay</h3>
+                    <p class="text-sm text-dusk">Secure your spot instantly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== MAIN BOOKING FORM =============== -->
+    <section class="py-12 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Booking Form Column (2/3 width) -->
+                <div class="lg:col-span-2">
+                    <div class="studio-card p-6 md:p-8">
+                        <h2 class="text-2xl font-display font-bold text-slate dark:text-white mb-6">Complete Your
+                            Booking</h2>
+
+                        <form id="bookingForm" class="space-y-6">
+                            <!-- Class Selection -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate dark:text-gray-200 mb-3">Select
+                                    Class Type *</label>
+                                <div class="grid md:grid-cols-2 gap-3" id="classOptions">
+                                    <div class="class-option-card p-4 rounded-xl border-2 border-cream dark:border-dusk/40 hover:border-terracotta transition"
+                                        data-class="beginner" data-price="22">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-smile text-terracotta text-xl"></i>
+                                            <div>
+                                                <div class="font-bold">Hoop Foundations</div>
+                                                <div class="text-xs text-dusk">Beginner • 60 min</div>
+                                                <div class="text-terracotta font-bold mt-1">$22</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="class-option-card p-4 rounded-xl border-2 border-cream dark:border-dusk/40 hover:border-terracotta transition"
+                                        data-class="intermediate" data-price="26">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-fire text-terracotta text-xl"></i>
+                                            <div>
+                                                <div class="font-bold">Flow Fundamentals</div>
+                                                <div class="text-xs text-dusk">Intermediate • 75 min</div>
+                                                <div class="text-terracotta font-bold mt-1">$26</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="class-option-card p-4 rounded-xl border-2 border-cream dark:border-dusk/40 hover:border-terracotta transition"
+                                        data-class="advanced" data-price="32">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-star text-terracotta text-xl"></i>
+                                            <div>
+                                                <div class="font-bold">Performance Flow</div>
+                                                <div class="text-xs text-dusk">Advanced • 90 min</div>
+                                                <div class="text-terracotta font-bold mt-1">$32</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="class-option-card p-4 rounded-xl border-2 border-cream dark:border-dusk/40 hover:border-terracotta transition"
+                                        data-class="led" data-price="30">
+                                        <div class="flex items-center gap-3">
+                                            <i class="fas fa-lightbulb text-terracotta text-xl"></i>
+                                            <div>
+                                                <div class="font-bold">LED Hoop Experience</div>
+                                                <div class="text-xs text-dusk">Specialty • 75 min</div>
+                                                <div class="text-terracotta font-bold mt-1">$30</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="selectedClass" name="selectedClass" required>
+                                <input type="hidden" id="selectedPrice" name="selectedPrice">
+                            </div>
+
+                            <!-- Date Picker -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate dark:text-gray-200 mb-2">Choose
+                                    Date *</label>
+                                <input type="text" id="datePicker" placeholder="Select a date"
+                                    class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition cursor-pointer">
+                            </div>
+
+                            <!-- Time Slots -->
+                            <div>
+                                <label class="block text-sm font-semibold text-slate dark:text-gray-200 mb-2">Select
+                                    Time *</label>
+                                <div class="grid grid-cols-2 sm:grid-cols-3 gap-3" id="timeSlots">
+                                    <!-- Time slots will be populated via JS -->
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        10:00 AM</div>
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        12:00 PM</div>
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        2:00 PM</div>
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        4:00 PM</div>
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        6:30 PM</div>
+                                    <div
+                                        class="time-slot p-3 text-center rounded-xl border border-cream dark:border-dusk/40 cursor-pointer transition">
+                                        7:30 PM</div>
+                                </div>
+                                <input type="hidden" id="selectedTime" name="selectedTime">
+                            </div>
+
+                            <!-- Personal Info -->
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div><label class="block text-sm font-semibold mb-1">First Name *</label><input
+                                        type="text" required
+                                        class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50">
+                                </div>
+                                <div><label class="block text-sm font-semibold mb-1">Last Name *</label><input
+                                        type="text" required
+                                        class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50">
+                                </div>
+                            </div>
+                            <div><label class="block text-sm font-semibold mb-1">Email Address *</label><input
+                                    type="email" required
+                                    class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50">
+                            </div>
+                            <div><label class="block text-sm font-semibold mb-1">Phone Number</label><input type="tel"
+                                    class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50">
+                            </div>
+
+                            <!-- Special Requests -->
+                            <div><label class="block text-sm font-semibold mb-1">Special Requests or
+                                    Notes</label><textarea rows="2"
+                                    class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50"
+                                    placeholder="Any injuries, accommodations, or questions?"></textarea></div>
+
+                            <!-- First timer checkbox -->
+                            <div class="flex items-center gap-2"><input type="checkbox" id="firstTimer"
+                                    class="w-4 h-4 accent-terracotta"><label class="text-sm text-dusk">This is my first
+                                    time at Hoop&Flow! (First class free)</label></div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn-primary w-full py-3 rounded-xl font-semibold text-base"><i
+                                    class="fas fa-lock mr-2"></i> Confirm & Pay Securely</button>
+                            <p class="text-xs text-dusk text-center">Cancel up to 4 hours before class for full credit
+                            </p>
+                        </form>
+
+                        <div id="bookingSuccess"
+                            class="hidden mt-6 p-5 bg-sage/20 text-sage rounded-xl text-center animate-fade-in">
+                            <i class="fas fa-check-circle text-3xl mb-2 block"></i>
+                            ✨ Booking confirmed! Check your email for details. We can't wait to flow with you!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar - Pricing & Info (1/3 width) -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-28 space-y-6">
+                        <!-- Order Summary Card -->
+                        <div class="studio-card p-6 shadow-lg border-terracotta/20">
+                            <h3 class="font-bold text-lg text-slate dark:text-white mb-4">Booking Summary</h3>
+                            <div class="space-y-3 text-sm border-b border-cream dark:border-dusk/30 pb-4">
+                                <div class="flex justify-between"><span class="text-dusk">Class:</span><span
+                                        id="summaryClass" class="font-medium text-slate dark:text-white">—</span></div>
+                                <div class="flex justify-between"><span class="text-dusk">Date:</span><span
+                                        id="summaryDate" class="font-medium text-slate dark:text-white">—</span></div>
+                                <div class="flex justify-between"><span class="text-dusk">Time:</span><span
+                                        id="summaryTime" class="font-medium text-slate dark:text-white">—</span></div>
+                            </div>
+                            <div class="flex justify-between mt-4 pt-2 text-lg font-bold"><span>Total:</span><span
+                                    class="text-terracotta" id="summaryTotal">$0</span></div>
+                            <p class="text-xs text-dusk mt-3 text-center" id="firstTimerNote"></p>
+                        </div>
+
+                        <!-- Free Class Offer -->
+                        <div class="studio-card p-6 bg-terracotta/5 border-terracotta/30">
+                            <i class="fas fa-gift text-terracotta text-2xl mb-2 block"></i>
+                            <h4 class="font-bold text-slate dark:text-white">New Student Offer</h4>
+                            <p class="text-sm text-dusk mt-1">Your first hoop class is completely free! Just check the
+                                box
+                                above.</p>
+                        </div>
+
+                        <!-- What to Bring -->
+                        <div class="studio-card p-6">
+                            <h4 class="font-bold text-slate dark:text-white mb-3">What to Bring</h4>
+                            <ul class="space-y-2 text-sm text-dusk">
+                                <li><i class="fas fa-check-circle text-sage w-5"></i> Comfortable clothes</li>
+                                <li><i class="fas fa-check-circle text-sage w-5"></i> Water bottle</li>
+                                <li><i class="fas fa-check-circle text-sage w-5"></i> Your smile (and maybe a friend!)
+                                </li>
+                            </ul>
+                            <p class="text-xs text-dusk mt-3">Hoops provided for all classes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== PRICING CARDS SECTION =============== -->
+    <section class="py-20 bg-cream/40 dark:bg-slate/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <i class="fas fa-tag text-terracotta text-3xl mb-3"></i>
+                <h2 class="text-3xl font-display font-bold text-slate dark:text-white">Save with <span
+                        class="text-terracotta">Packages</span></h2>
+                <p class="text-dusk">Best value for regular flowmies</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="price-card studio-card p-6 text-center">
+                    <h3 class="text-xl font-bold">Single Class</h3>
+                    <div class="text-4xl font-bold text-terracotta my-4">$22</div>
+                    <p class="text-sm text-dusk">Drop-in rate</p>
+                    <a href="#" class="btn-outline block mt-4 py-2 text-sm">Purchase</a>
+                </div>
+                <div class="price-card popular studio-card p-6 text-center relative">
+                    <div
+                        class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-terracotta text-white text-xs px-3 py-1 rounded-full">
+                        Best Value</div>
+                    <h3 class="text-xl font-bold">5-Class Pack</h3>
+                    <div class="text-4xl font-bold text-terracotta my-4">$99</div>
+                    <p class="text-sm text-dusk">Save 10% • Valid 3 months</p>
+                    <a href="#" class="btn-primary block mt-4 py-2 text-sm">Buy Pack</a>
+                </div>
+                <div class="price-card studio-card p-6 text-center">
+                    <h3 class="text-xl font-bold">Monthly Unlimited</h3>
+                    <div class="text-4xl font-bold text-terracotta my-4">$129</div>
+                    <p class="text-sm text-dusk">Unlimited classes + perks</p>
+                    <a href="#" class="btn-outline block mt-4 py-2 text-sm">Join Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== FAQ SHORT =============== -->
+    <section class="py-16 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h3 class="text-2xl font-bold text-center text-slate dark:text-white mb-8">Quick <span
+                    class="text-terracotta">Answers</span></h3>
+            <div class="space-y-3">
+                <details class="studio-card p-4">
+                    <summary class="font-medium cursor-pointer">Can I cancel or reschedule?</summary>
+                    <p class="text-sm text-dusk pt-2">Yes! Cancel up to 4 hours before class for full credit. Late
+                        cancellations may incur a small fee.</p>
+                </details>
+                <details class="studio-card p-4">
+                    <summary class="font-medium cursor-pointer">What if I'm running late?</summary>
+                    <p class="text-sm text-dusk pt-2">Please arrive 5-10 minutes early. Late arrivals may not be
+                        admitted after 10 minutes.</p>
+                </details>
+                <details class="studio-card p-4">
+                    <summary class="font-medium cursor-pointer">Do you offer private sessions?</summary>
+                    <p class="text-sm text-dusk pt-2">Yes! Contact us for 1-on-1 coaching or small group privates
+                        starting at $75/hour.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== CTA - Gift Cards =============== -->
+    <section class="py-16 bg-terracotta">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fas fa-gift-card text-white text-4xl mb-4 inline-block"></i>
+            <h2 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Give the Gift of Flow</h2>
+            <p class="text-white/90 mb-6">Hoop&Flow gift cards — perfect for birthdays, holidays, or any occasion!</p>
+            <a href="#"
+                class="bg-white text-terracotta px-8 py-3 rounded-full font-bold hover:scale-105 transition inline-flex items-center gap-2"><i
+                    class="fas fa-heart"></i> Purchase Gift Card</a>
+        </div>
+    </section>
+
+
+    <!-- =============== FOOTER (IDENTICAL TO REFERENCE) =============== -->
+    <footer class="bg-slate text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                        </div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-white">HOOP&FLOW</span>
+                    </div>
+                    <p class="mb-5 text-gray-400 text-sm">Where hula hoop dance meets freedom. Join our vibrant flow
+                        community today.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">About Our
+                                Studio</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Class
+                                Schedule</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Private Hoop
+                                Sessions</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Flow Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
+                                Instructor</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Studio</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-map-marker-alt text-terracotta mt-1"></i><span>42 Flow Avenue, Arts
+                                District, LA</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-phone-alt text-terracotta"></i><span>(555) 123-HOOP</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-envelope text-terracotta"></i><span>hello@hoopandflow.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-dusk/30 text-center text-sm text-gray-500">
+                <p>&copy; 2026 HOOP&FLOW | Hula Hoop Dance & Flow Arts Studio. All rights reserved. <i
+                        class="fas fa-heart text-terracotta mx-1"></i> Keep flowing, keep hooping.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL / LTR Toggle functionality
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL) {
+                    html.setAttribute('dir', 'rtl');
+                    localStorage.setItem('dir', 'rtl');
+                } else {
+                    html.setAttribute('dir', 'ltr');
+                    localStorage.setItem('dir', 'ltr');
+                }
+            }
+
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') {
+                document.documentElement.setAttribute('dir', 'rtl');
+            } else {
+                document.documentElement.setAttribute('dir', 'ltr');
+            }
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+                    setRTL(newDir === 'rtl');
+                });
+            }
+
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    const newDir = currentDir === 'rtl' ? 'ltr' : 'rtl';
+                    setRTL(newDir === 'rtl');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    if (mobileMenu && mobileMenu.classList.contains('open')) {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle && mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+
+            // Class selection logic
+            const classOptions = document.querySelectorAll('.class-option-card');
+            const selectedClassInput = document.getElementById('selectedClass');
+            const selectedPriceInput = document.getElementById('selectedPrice');
+            const summaryClass = document.getElementById('summaryClass');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const firstTimerCheckbox = document.getElementById('firstTimer');
+            const firstTimerNote = document.getElementById('firstTimerNote');
+
+            let currentPrice = 0;
+            let isFirstTimer = false;
+
+            classOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    classOptions.forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                    const className = option.querySelector('.font-bold')?.innerText || 'Class';
+                    const price = parseInt(option.getAttribute('data-price'));
+                    selectedClassInput.value = className;
+                    selectedPriceInput.value = price;
+                    summaryClass.innerText = className;
+                    currentPrice = price;
+                    updateTotal();
+                });
+            });
+
+            // Time slot selection
+            const timeSlots = document.querySelectorAll('.time-slot');
+            const selectedTimeInput = document.getElementById('selectedTime');
+            const summaryTime = document.getElementById('summaryTime');
+
+            timeSlots.forEach(slot => {
+                slot.addEventListener('click', () => {
+                    timeSlots.forEach(s => s.classList.remove('selected'));
+                    slot.classList.add('selected');
+                    const time = slot.innerText;
+                    selectedTimeInput.value = time;
+                    summaryTime.innerText = time;
+                });
+            });
+
+            // First timer logic
+            firstTimerCheckbox?.addEventListener('change', (e) => {
+                isFirstTimer = e.target.checked;
+                if (isFirstTimer) {
+                    firstTimerNote.innerHTML = '🎉 First class is FREE! Your total is $0.';
+                    firstTimerNote.classList.add('text-terracotta', 'font-bold');
+                } else {
+                    firstTimerNote.innerHTML = '';
+                    firstTimerNote.classList.remove('text-terracotta', 'font-bold');
+                }
+                updateTotal();
+            });
+
+            function updateTotal() {
+                let total = isFirstTimer ? 0 : currentPrice;
+                summaryTotal.innerText = total === 0 ? 'FREE!' : `$${total}`;
+            }
+
+            // Date picker (Flatpickr)
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr("#datePicker", {
+                    dateFormat: "F j, Y",
+                    minDate: "today",
+                    maxDate: new Date().fp_incr(60),
+                    disable: [
+                        function (date) {
+                            return date.getDay() === 0;
+                        }
+                    ],
+                    onChange: function (selectedDates, dateStr) {
+                        const sDate = document.getElementById('summaryDate');
+                        if (sDate) sDate.innerText = dateStr;
+                    }
+                });
+            }
+
+            // Form submission
+            const bookingForm = document.getElementById('bookingForm');
+            const bookingSuccess = document.getElementById('bookingSuccess');
+
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    if (!selectedClassInput.value) {
+                        alert('Please select a class type');
+                        return;
+                    }
+                    if (!document.getElementById('datePicker').value) {
+                        alert('Please select a date');
+                        return;
+                    }
+                    if (!selectedTimeInput.value) {
+                        alert('Please select a time');
+                        return;
+                    }
+                    bookingForm.classList.add('hidden');
+                    bookingSuccess.classList.remove('hidden');
+                    setTimeout(() => {
+                        bookingForm.reset();
+                        bookingForm.classList.remove('hidden');
+                        bookingSuccess.classList.add('hidden');
+                        // Reset UI states
+                        classOptions.forEach(opt => opt.classList.remove('selected'));
+                        timeSlots.forEach(s => s.classList.remove('selected'));
+                        summaryClass.innerText = '—';
+                        document.getElementById('summaryDate').innerText = '—';
+                        document.getElementById('summaryTime').innerText = '—';
+                        summaryTotal.innerText = '$0';
+                        if (firstTimerCheckbox) firstTimerCheckbox.checked = false;
+                        isFirstTimer = false;
+                        firstTimerNote.innerHTML = '';
+                    }, 4000);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

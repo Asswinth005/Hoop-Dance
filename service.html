@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Hoops & Flow — Hula Hoop Dance & Wellness Services</title>
+    <!-- Custom Favicon - Hula Hoop -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23E07A5F'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23F4F1DE'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23E07A5F'/%3E%3Cpath fill='%2381B29A' d='M50 25 L56 40 L72 40 L60 50 L66 65 L50 55 L34 65 L40 50 L28 40 L44 40 Z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#E07A5F',
+                        slate: '#3D405B',
+                        sage: '#81B29A',
+                        cream: '#F4F1DE',
+                        dusk: '#6D6875',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'hoop-spin': 'hoopSpin 3s linear infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                        'shimmer': 'shimmer 2s linear infinite',
+                        'marquee': 'marquee 20s linear infinite',
+                        'service-float': 'serviceFloat 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        spinSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        hoopSpin: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.05)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.7' },
+                            '50%': { opacity: '1' },
+                        },
+                        shimmer: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        serviceFloat: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(2deg)' },
+                        },
+                    },
+                    backgroundImage: {
+                        'warm-pattern': "radial-gradient(circle at 10% 30%, rgba(224, 122, 95, 0.06) 0%, transparent 60%)",
+                        'service-wave': "url('data:image/svg+xml,%3Csvg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\"%3E%3Cpath fill=\"%23E07A5F\" fill-opacity=\"0.08\" d=\"M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,208C672,213,768,171,864,160C960,149,1056,171,1152,186.7C1248,203,1344,213,1392,218.7L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z\"%3E%3C/path%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #2D2A3A;
+        }
+
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8E4D8;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #E07A5F;
+            border-radius: 10px;
+        }
+
+        /* Unique Service Card Designs */
+        .service-card-premium {
+            background: white;
+            border-radius: 2rem;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(224, 122, 95, 0.2);
+            backdrop-filter: blur(2px);
+        }
+
+        .dark .service-card-premium {
+            background: #3D3B4D;
+            border-color: rgba(224, 122, 95, 0.3);
+        }
+
+        .service-card-premium:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 45px -20px rgba(224, 122, 95, 0.5);
+            border-color: #E07A5F;
+        }
+
+        .icon-circle {
+            background: linear-gradient(135deg, #E07A5F15, #E07A5F30);
+            transition: all 0.3s;
+        }
+
+        .service-card-premium:hover .icon-circle {
+            background: #E07A5F;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .service-card-premium:hover .icon-circle i {
+            color: white !important;
+        }
+
+        .btn-primary {
+            background-color: #E07A5F;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #C56A4F;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #E07A5F;
+            color: #E07A5F;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #E07A5F;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-studio {
+            position: relative;
+        }
+
+        .dropdown-studio-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid #E07A5F20;
+        }
+
+        .dark .dropdown-studio-menu {
+            background: #3D3B4D;
+            border-color: #E07A5F40;
+        }
+
+        .dropdown-studio:hover .dropdown-studio-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #3D405B;
+        }
+
+        .dark .dropdown-item {
+            color: #F4F1DE;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            padding-left: 1.7rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .mobile-menu-studio {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-studio {
+            background: #2D2A3A;
+        }
+
+        .mobile-menu-studio.open {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .social-icon-studio {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            transition: all 0.3s;
+        }
+
+        .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-studio {
+            background-color: #6D6875;
+            color: #F4F1DE;
+        }
+
+        .dark .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: #2D2A3A;
+        }
+
+        .pricing-badge {
+            background: linear-gradient(120deg, #E07A5F, #C56A4F);
+        }
+    </style>
+</head>
+
+<body class="warm-pattern overflow-x-hidden">
+
+    <!-- Navigation - Identical to event page header -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#2D2A3A]/95 backdrop-blur-md border-b border-cream dark:border-dusk/30 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo with hoop spin -->
+                <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+                    <div
+                        class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 hoop-icon">
+                        <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-slate dark:text-white">HOOP&FLOW</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation & Right Actions Wrapper -->
+                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto">
+                    <!-- Desktop Navigation Links -->
+                    <div class="hidden lg:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-studio">
+                            <button
+                                class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </button>
+                            <div class="dropdown-studio-menu">
+                                <a class="dropdown-item" href="index.html"> Home 1</a>
+                                <a class="dropdown-item" href="home2.html"> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="about.html">About</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="class.html">Classes</a>
+                        <a class="nav-link text-terracotta font-medium transition whitespace-nowrap text-sm xl:text-base"
+                            href="service.html">Services</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="event.html">Events</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="gallery.html">Gallery</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="book.html">Book Now</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="contact.html">Contact</a>
+                    </div>
+
+                    <!-- Desktop Actions (3 Icons) -->
+                    <div class="hidden lg:flex items-center gap-4 ml-2">
+                        <div class="dropdown-studio">
+                            <button
+                                class="w-10 h-10 rounded-full bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-white transition flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <div class="dropdown-studio-menu" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                                <a class="dropdown-item" href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                            </div>
+                        </div>
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center font-bold text-base"
+                            title="Toggle RTL/LTR Direction">
+                            ⇄
+                        </button>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-studio lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-slate dark:text-gray-200 border-l-4 border-transparent hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition cursor-pointer">
+                            <span>Home</span>
+                            <i id="home-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="index.html"><i class="fas fa-home w-6"></i> Home 1</a>
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="home2.html"><i class="fas fa-spa w-6"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="class.html">Classes</a>
+                    <a class="block py-3 px-4 font-medium text-terracotta bg-terracotta/5 border-l-4 border-terracotta rounded-xl transition"
+                        href="service.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="event.html">Events</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="gallery.html">Gallery</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="book.html">Book Now</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream dark:border-dusk/40">
+                        <a class="text-center py-2 rounded-full font-medium text-terracotta border border-terracotta"
+                            href="login.html">Log in</a>
+                        <a class="text-center btn-primary py-2 rounded-full" href="signup.html">Sign Up Free</a>
+                        <div class="flex gap-3">
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                                Theme
+                            </button>
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                ⇄ RTL Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - Service style with organic shapes -->
+    <section class="pt-36 md:pt-24 pb-20 relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-service-wave bg-no-repeat bg-bottom opacity-30 pointer-events-none"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center animate-slide-up">
+                <div
+                    class="inline-flex items-center gap-2 px-5 py-2 bg-terracotta/10 rounded-full mb-6 border border-terracotta/25 backdrop-blur-sm">
+                    <i class="fas fa-spa text-terracotta"></i>
+                    <span class="text-sm font-semibold text-slate dark:text-white">Elevate Your Flow Journey</span>
+                </div>
+                <h1
+                    class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 text-slate dark:text-white leading-tight">
+                    Holistic <span class="text-terracotta">Hoop Services</span>
+                </h1>
+                <p class="text-lg md:text-xl text-dusk dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">Discover
+                    unique flow experiences — from private hoop choreography to corporate wellness and bespoke hoop
+                    crafting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES GRID - Distinct design with floating cards -->
+    <section class="py-20 pb-24 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate dark:text-white">Specialized <span
+                        class="text-terracotta">Flow Solutions</span></h2>
+                <div class="w-20 h-1 bg-terracotta/30 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1: Private Hoop Choreography -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i class="fas fa-star text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Private Choreography</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">1-on-1 hoop dance choreography for
+                        performances, music videos, or special events. Tailored to your style and skill level.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$120</span><span
+                                class="text-dusk text-sm">/session</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Book
+                            Now <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 2: Corporate Wellness & Team Building -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i
+                            class="fas fa-building text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Corporate Wellness</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">Team building & stress relief through
+                        hoop flow. Fun, engaging workshops that boost creativity and office morale.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$450+</span><span
+                                class="text-dusk text-sm">/group</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Inquire
+                            <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 3: Custom Hoop Design & Sales -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i
+                            class="fas fa-wand-magic-sparkles text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Custom Hoop Design</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">Create your dream hoop: size, tubing,
+                        tape design, and LED upgrades. Handcrafted with love and flow energy.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$55+</span><span
+                                class="text-dusk text-sm">/custom</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Design
+                            Yours <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 4: Bachelorette & Party Packages -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i
+                            class="fas fa-champagne-glasses text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Celebration Parties</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">Bachelorettes, birthdays, or girls'
+                        night out. 90-minute hoop party with pro instruction, photos, and sparkling vibes.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$299</span><span
+                                class="text-dusk text-sm">/up to 10</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Book
+                            Party <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 5: Therapeutic Hoop Sessions -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i class="fas fa-brain text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Therapeutic Hooping</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">Mind-body wellness combining hoop dance
+                        with breathwork & mindfulness. Release tension, find inner flow.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$95</span><span
+                                class="text-dusk text-sm">/session</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Heal
+                            with Flow <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+
+                <!-- Service 6: Performance Booking -->
+                <div class="service-card-premium p-8 group">
+                    <div
+                        class="icon-circle w-20 h-20 rounded-2xl flex items-center justify-center mb-6 bg-terracotta/10 transition-all duration-300">
+                        <i
+                            class="fas fa-fire-flame-curved text-3xl text-terracotta group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate dark:text-white mb-3">Live Hoop Performance</h3>
+                    <p class="text-dusk dark:text-gray-300 mb-5 leading-relaxed">Book our pro hoop artists for
+                        festivals, corporate galas, or brand activations. LED, fire, and interactive flow arts.</p>
+                    <div class="flex items-center justify-between mt-auto">
+                        <div><span class="text-terracotta font-black text-2xl">$400+</span><span
+                                class="text-dusk text-sm">/per act</span></div>
+                        <a href="#"
+                            class="text-terracotta font-semibold hover:gap-2 transition-all inline-flex items-center gap-1">Hire
+                            Artist <i class="fas fa-arrow-right text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING COMPARISON TABLE - Unique design element -->
+    <section class="py-16 bg-cream/40 dark:bg-slate/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <i class="fas fa-chart-simple text-terracotta text-3xl mb-3"></i>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-slate dark:text-white">Membership <span
+                        class="text-terracotta">Packages</span></h2>
+                <p class="text-dusk dark:text-gray-300">Unlimited flow & exclusive perks</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-bold">Flow Starter</h3>
+                    <div class="text-3xl font-black text-terracotta my-3">$49<span
+                            class="text-sm font-normal">/mo</span></div>
+                    <ul class="space-y-2 text-sm text-left mb-6">
+                        <li><i class="fas fa-check text-sage mr-2"></i> 4 drop-in classes</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> 15% off workshops</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> Community jams</li>
+                    </ul>
+                    <button class="btn-outline w-full py-2 rounded-full">Get Started</button>
+                </div>
+                <div
+                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border-2 border-terracotta shadow-xl relative transform scale-105 z-10">
+                    <div
+                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs px-3 py-1 rounded-full">
+                        Most Popular</div>
+                    <h3 class="text-xl font-bold">Flow Unlimited</h3>
+                    <div class="text-3xl font-black text-terracotta my-3">$99<span
+                            class="text-sm font-normal">/mo</span></div>
+                    <ul class="space-y-2 text-sm text-left mb-6">
+                        <li><i class="fas fa-check text-sage mr-2"></i> Unlimited classes</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> 25% off all services</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> Priority event access</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> Free hoop check-ups</li>
+                    </ul>
+                    <button class="btn-primary w-full py-2 rounded-full">Join Unlimited</button>
+                </div>
+                <div
+                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all">
+                    <h3 class="text-xl font-bold">Pro Pass</h3>
+                    <div class="text-3xl font-black text-terracotta my-3">$149<span
+                            class="text-sm font-normal">/mo</span></div>
+                    <ul class="space-y-2 text-sm text-left mb-6">
+                        <li><i class="fas fa-check text-sage mr-2"></i> Unlimited + private coaching</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> 35% off merch & hoops</li>
+                        <li><i class="fas fa-check text-sage mr-2"></i> Guest passes (2/mo)</li>
+                    </ul>
+                    <button class="btn-outline w-full py-2 rounded-full">Go Pro</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA: Customized Experience -->
+    <section class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-terracotta opacity-95"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <i class="fas fa-hand-sparkles text-white text-5xl mb-5 animate-bounce-gentle inline-block"></i>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-4">Not seeing what you need?</h2>
+            <p class="text-cream text-lg max-w-xl mx-auto mb-8">We craft bespoke hoop experiences — from retreats to
+                online courses. Let's create your unique flow journey.</p>
+            <a href="#"
+                class="bg-white text-terracotta px-10 py-4 rounded-full font-bold shadow-xl hover:scale-105 transition inline-flex items-center gap-2 text-lg">Customize
+                Your Package <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER (IDENTICAL) -->
+    <footer class="bg-slate text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                        </div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-white">HOOP&FLOW</span>
+                    </div>
+                    <p class="mb-5 text-gray-400 text-sm">Where hula hoop dance meets freedom. Join our vibrant flow
+                        community today.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">About Our
+                                Studio</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Class
+                                Schedule</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Private Hoop
+                                Sessions</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Flow Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
+                                Instructor</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Studio</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-map-marker-alt text-terracotta mt-1"></i><span>42 Flow Avenue, Arts
+                                District, LA</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-phone-alt text-terracotta"></i><span>(555) 123-HOOP</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-envelope text-terracotta"></i><span>hello@hoopandflow.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-dusk/30 text-center text-sm text-gray-500">
+                <p>&copy; 2026 HOOP&FLOW | Hula Hoop Dance & Flow Arts Studio. All rights reserved. <i
+                        class="fas fa-heart text-terracotta mx-1"></i> Keep flowing, keep hooping.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => btn?.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            }));
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                html.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            else document.documentElement.setAttribute('dir', 'ltr');
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            mobileRtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

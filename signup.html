@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, viewport-fit=cover">
+    <title>Sign Up · Hoops & Flow | Join the Flow Community</title>
+    <!-- Custom Favicon - Hula Hoop -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23E07A5F'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23F4F1DE'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23E07A5F'/%3E%3Cpath fill='%2381B29A' d='M50 25 L56 40 L72 40 L60 50 L66 65 L50 55 L34 65 L40 50 L28 40 L44 40 Z'/%3E%3C/svg%3E">
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#E07A5F',
+                        slate: '#3D405B',
+                        sage: '#81B29A',
+                        cream: '#F4F1DE',
+                        dusk: '#6D6875',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'warm-pattern': "radial-gradient(circle at 10% 30%, rgba(224, 122, 95, 0.06) 0%, transparent 60%)",
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.3s ease-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'hoop-bounce': 'hoopBounce 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0', transform: 'translateY(10px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        float: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-6px)' } },
+                        spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+                        hoopBounce: { '0%,100%': { transform: 'translateY(0) rotate(0deg)' }, '50%': { transform: 'translateY(-8px) rotate(10deg)' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ----- NO SCROLL — fit exactly one screen ----- */
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #F4F1DE;
+            color: #3D405B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0;
+        }
+
+        .dark body {
+            background-color: #2D2A3A;
+            color: #F4F1DE;
+        }
+
+        /* toggle buttons — positioned top-right */
+        .theme-toggle-wrapper {
+            position: fixed;
+            top: 12px;
+            right: 12px;
+            z-index: 1000;
+            display: flex;
+            gap: 6px;
+        }
+
+        .toggle-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            color: #E07A5F;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(224, 122, 95, 0.2);
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .dark .toggle-btn {
+            background: #3D3B4D;
+            color: #E07A5F;
+            border-color: rgba(224, 122, 95, 0.3);
+        }
+
+        .toggle-btn:hover {
+            background: #E07A5F;
+            color: white;
+        }
+
+        .dark .toggle-btn:hover {
+            background: #E07A5F;
+            color: white;
+        }
+
+        .toggle-btn.active {
+            background: #E07A5F;
+            color: white;
+        }
+
+        /* SIGNUP CARD — hoop & flow theme */
+        .signup-card {
+            background: white;
+            border-radius: 36px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 20px 45px rgba(224, 122, 95, 0.12);
+            border: 1px solid rgba(224, 122, 95, 0.2);
+            width: 100%;
+            max-width: 460px;
+            margin: 0 auto;
+            transition: background 0.2s ease;
+        }
+
+        .dark .signup-card {
+            background: #3D3B4D;
+            border-color: rgba(224, 122, 95, 0.3);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        /* input styling */
+        .signup-input {
+            width: 100%;
+            padding: 0.8rem 1.2rem 0.8rem 3rem;
+            border-radius: 50px;
+            border: 1px solid #E8E4D8;
+            background: white;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            color: #3D405B;
+        }
+
+        .dark .signup-input {
+            background: #2D2A3A;
+            border-color: #4A485C;
+            color: #F4F1DE;
+        }
+
+        .signup-input:focus {
+            outline: none;
+            border-color: #E07A5F;
+            box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.2);
+        }
+
+        .dark .signup-input:focus {
+            border-color: #E07A5F;
+            box-shadow: 0 0 0 3px rgba(224, 122, 95, 0.25);
+        }
+
+        /* password wrapper for eye icon */
+        .password-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper .signup-input {
+            padding-right: 3rem;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #E07A5F;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            background: transparent;
+            border: none;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .dark .toggle-password {
+            color: #E07A5F;
+        }
+
+        .toggle-password:hover {
+            color: #C56A4F;
+        }
+
+        [dir="rtl"] .toggle-password {
+            right: auto;
+            left: 1rem;
+        }
+
+        [dir="rtl"] .password-wrapper .signup-input {
+            padding-right: 1.2rem;
+            padding-left: 3rem;
+        }
+
+        [dir="rtl"] .input-icon {
+            left: auto;
+            right: 1.1rem;
+        }
+
+        /* primary button */
+        .hoop-btn {
+            background: #E07A5F;
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hoop-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.35);
+            background: #C56A4F;
+        }
+
+        /* social login buttons */
+        .social-btn-row {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            width: 100%;
+            margin-top: 0.25rem;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 0.7rem 0.5rem;
+            border-radius: 50px;
+            border: 1px solid #E8E4D8;
+            background: white;
+            color: #3D405B;
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .dark .social-btn {
+            background: #2D2A3A;
+            border-color: #4A485C;
+            color: #F4F1DE;
+        }
+
+        .social-btn:hover {
+            background: #F4F1DE;
+            border-color: #E07A5F;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .social-btn:hover {
+            background: #4A485C;
+            border-color: #E07A5F;
+        }
+
+        .social-btn i {
+            font-size: 1.1rem;
+            color: #E07A5F;
+        }
+
+        /* hoop spin animation for logo */
+        .hoop-spin-icon {
+            display: inline-block;
+            animation: spinSlow 8s linear infinite;
+        }
+
+        @keyframes spinSlow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* RTL adjustments */
+        [dir="rtl"] .signup-input {
+            padding: 0.8rem 3rem 0.8rem 1.2rem;
+        }
+
+        [dir="rtl"] .input-icon {
+            left: auto;
+            right: 1.1rem;
+        }
+
+        [dir="rtl"] .fa-arrow-right {
+            transform: scaleX(-1);
+        }
+
+        [dir="rtl"] .theme-toggle-wrapper {
+            right: auto;
+            left: 20px;
+        }
+
+        [dir="rtl"] .flex.space-x-2> :not([hidden])~ :not([hidden]) {
+            margin-right: 0.5rem;
+            margin-left: 0;
+        }
+
+        /* hidden utility */
+        .hidden {
+            display: none;
+        }
+
+        /* container */
+        .container-tight {
+            max-width: 480px;
+            width: 100%;
+            padding: 0 1.2rem;
+        }
+
+        /* center logo container */
+        .logo-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.75rem;
+        }
+
+
+        .brand-logo {
+            background: #E07A5F;
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+            box-shadow: 0 4px 10px rgba(224, 122, 95, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 768px) {
+            .brand-logo {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* welcome title styles */
+        .welcome-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #3D405B;
+            margin-top: 0.5rem;
+            margin-bottom: 0.1rem;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .dark .welcome-title {
+            color: #F4F1DE;
+        }
+
+        .welcome-subtitle {
+            font-size: 0.85rem;
+            color: #6D6875;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .dark .welcome-subtitle {
+            color: #B8B5C5;
+        }
+
+        /* terms text style */
+        .terms-text {
+            font-size: 0.7rem;
+            color: #6D6875;
+        }
+
+        .dark .terms-text {
+            color: #9CA3AF;
+        }
+
+        .terms-link {
+            color: #E07A5F;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .terms-link:hover {
+            text-decoration: underline;
+            color: #C56A4F;
+        }
+
+        /* divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 1.2rem 0 0.8rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E8E4D8;
+        }
+
+        .dark .divider::before,
+        .dark .divider::after {
+            border-bottom-color: #4A485C;
+        }
+
+        .divider span {
+            font-size: 0.7rem;
+            padding: 0 0.8rem;
+            color: #6D6875;
+            font-weight: 500;
+        }
+
+        .dark .divider span {
+            color: #9CA3AF;
+        }
+
+        /* Fix for short screens like Nest Hub (1024x600) */
+        @media (max-height: 650px) {
+            .signup-card {
+                padding: 0.75rem 1.5rem;
+                transform: scale(0.95);
+                transform-origin: center;
+            }
+
+            .logo-center {
+                margin-bottom: 0.5rem;
+            }
+
+            .welcome-title {
+                font-size: 1.2rem;
+                margin-top: 0;
+            }
+
+            .welcome-subtitle {
+                font-size: 0.75rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .signup-input {
+                padding: 0.5rem 0.8rem 0.5rem 2.5rem;
+                font-size: 0.8rem;
+            }
+
+            .hoop-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+                margin-top: 0.25rem;
+            }
+
+            .divider {
+                margin: 0.4rem 0;
+            }
+
+            .social-btn {
+                padding: 0.4rem 0.5rem;
+                font-size: 0.75rem;
+            }
+
+            .theme-toggle-wrapper {
+                top: 8px;
+                right: 8px;
+            }
+
+            .toggle-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* spacing adjustments */
+        .space-y-4> :not([hidden])~ :not([hidden]) {
+            margin-top: 0.85rem;
+        }
+
+        /* mobile friendly */
+        @media (max-width: 380px) {
+            .signup-card {
+                padding: 1rem 1.2rem;
+                border-radius: 24px;
+            }
+
+            .welcome-title {
+                font-size: 1.2rem;
+                margin-top: 0.25rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 0.75rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .logo-center {
+                margin-bottom: 0.5rem;
+            }
+
+            .brand-logo {
+                width: 32px;
+                height: 32px;
+                margin-bottom: 0.25rem;
+            }
+
+            .brand-logo i {
+                font-size: 1rem;
+            }
+
+            .social-btn-row {
+                gap: 0.5rem;
+                margin-top: 0.1rem;
+            }
+
+            .social-btn {
+                padding: 0.4rem 0.3rem;
+                font-size: 0.75rem;
+                gap: 0.3rem;
+            }
+
+            .social-btn i {
+                font-size: 0.9rem;
+            }
+
+            .signup-input {
+                padding: 0.6rem 0.8rem 0.6rem 2.6rem;
+                font-size: 0.8rem;
+            }
+
+            .toggle-password {
+                right: 0.8rem;
+            }
+
+            .hoop-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .divider {
+                margin: 0.8rem 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .theme-toggle-wrapper {
+                top: 12px;
+                right: 12px;
+            }
+
+            [dir="rtl"] .theme-toggle-wrapper {
+                left: 12px;
+            }
+        }
+
+        /* floating hoop decoration (subtle) */
+        .floating-hoop {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0.15;
+            pointer-events: none;
+            font-size: 80px;
+            z-index: 0;
+        }
+
+        .dark .floating-hoop {
+            opacity: 0.08;
+        }
+
+        [dir="rtl"] .floating-hoop {
+            left: auto;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body class="bg-cream dark:bg-canvas-dark warm-pattern">
+
+
+    <!-- ===== THEME TOGGLES - TOP-RIGHT ===== -->
+    <div class="theme-toggle-wrapper">
+        <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+            <i class="fas fa-sun"></i>
+        </button>
+        <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">
+            ⇄
+        </button>
+    </div>
+
+    <!-- ===== SIGNUP CARD ===== -->
+    <div class="container-tight">
+        <div class="signup-card">
+
+            <!-- ===== LOGO - CENTERED ===== -->
+            <div class="logo-center mb-6">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group shrink-0">
+                    <div class="brand-logo group-hover:scale-105">
+                        <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-xl md:text-2xl font-display font-bold tracking-tight text-slate dark:text-white">HOOP&FLOW</span>
+                    </div>
+                </a>
+
+                <h1 class="welcome-title">Join the Flow</h1>
+                <p class="welcome-subtitle">Create an account to book classes & join our hoop community</p>
+            </div>
+
+            <!-- ===== SIGNUP FORM with EYE ICON on password fields ===== -->
+            <form id="signupForm" class="space-y-4" action="#" method="GET">
+
+                <!-- full name field -->
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-terracotta input-icon">
+                        <i class="fas fa-user w-4 text-sm"></i>
+                    </span>
+                    <input type="text" id="fullName" name="name" placeholder="Full name" required
+                        class="signup-input text-sm md:text-sm">
+                </div>
+
+                <!-- email field -->
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-terracotta input-icon">
+                        <i class="fas fa-envelope w-4 text-sm"></i>
+                    </span>
+                    <input type="email" id="email" name="email" placeholder="Email address" required
+                        class="signup-input text-sm md:text-sm">
+                </div>
+
+                <!-- password field with eye icon -->
+                <div class="password-wrapper">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-terracotta input-icon">
+                        <i class="fas fa-lock w-4 text-sm"></i>
+                    </span>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required
+                        class="signup-input text-sm md:text-sm">
+                    <button type="button" class="toggle-password" data-target="signup-password"
+                        aria-label="Show password">
+                        <i class="far fa-eye-slash"></i>
+                    </button>
+                </div>
+
+                <!-- confirm password field with eye icon -->
+                <div class="password-wrapper">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-terracotta input-icon">
+                        <i class="fas fa-lock w-4 text-sm"></i>
+                    </span>
+                    <input type="password" id="signup-confirm-password" name="confirm_password"
+                        placeholder="Confirm password" required class="signup-input text-sm md:text-sm">
+                    <button type="button" class="toggle-password" data-target="signup-confirm-password"
+                        aria-label="Show password">
+                        <i class="far fa-eye-slash"></i>
+                    </button>
+                </div>
+
+                <!-- terms and conditions checkbox -->
+                <div class="flex items-start space-x-2 rtl:space-x-reverse mt-1">
+                    <input type="checkbox" id="terms"
+                        class="mt-0.5 rounded border-gray-300 dark:border-gray-600 text-terracotta focus:ring-terracotta/30 dark:bg-gray-700"
+                        required>
+                    <label for="terms" class="terms-text">
+                        I agree to the <a href="#" class="terms-link" id="termsLink">Terms of Service</a> and <a
+                            href="#" class="terms-link" id="privacyLink">Privacy Policy</a>
+                    </label>
+                </div>
+
+
+
+                <!-- SIGN UP BUTTON -->
+                <button type="submit" class="hoop-btn mt-2">
+                    <i class="fas fa-user-plus mr-2 rtl:ml-2 rtl:mr-0"></i>
+                    Create Account
+                </button>
+            </form>
+
+            <!-- ===== Divider + Social Options (Google & Apple) ===== -->
+            <div class="divider">
+                <span>or sign up with</span>
+            </div>
+
+            <div class="social-btn-row">
+                <button class="social-btn group" id="googleSignupBtn">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn group" id="appleSignupBtn">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple</span>
+                </button>
+            </div>
+
+            <!-- ===== LOGIN LINK ===== -->
+            <div class="mt-4 text-center">
+                <span class="text-xs text-dusk dark:text-gray-400">Already flowing with us?</span>
+                <a href="login.html"
+                    class="text-xs font-semibold text-terracotta dark:text-terracotta hover:text-terracotta-dark ml-1 rtl:mr-1 hover:underline">
+                    Sign in
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- ===== DARK / LIGHT + RTL TOGGLE SCRIPT + EYE ICON FUNCTIONALITY ===== -->
+    <script>
+            (function () {
+                // ---------- THEME ----------
+                const themeToggle = document.getElementById('theme-toggle');
+
+                function setTheme(isDark) {
+                    if (isDark) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+
+                    const icon = themeToggle?.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-sun', 'fa-moon');
+                        icon.classList.add(isDark ? 'fa-moon' : 'fa-sun');
+                    }
+
+                    if (isDark) {
+                        themeToggle?.classList.add('active');
+                        localStorage.setItem('theme', 'dark');
+                    } else {
+                        themeToggle?.classList.remove('active');
+                        localStorage.setItem('theme', 'light');
+                    }
+                }
+
+                // Check for saved theme or system preference
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    setTheme(true);
+                } else if (savedTheme === 'light') {
+                    setTheme(false);
+                } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    setTheme(true);
+                } else {
+                    setTheme(false);
+                }
+
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setTheme(!document.documentElement.classList.contains('dark'));
+                    });
+                }
+
+                // ---------- RTL ----------
+                const rtlBtn = document.getElementById('rtl-toggle');
+                function setRTL(isRTL) {
+                    if (isRTL) {
+                        document.documentElement.dir = 'rtl';
+                        document.documentElement.lang = 'ar';
+                        rtlBtn?.classList.add('active');
+                        localStorage.setItem('dir', 'rtl');
+                    } else {
+                        document.documentElement.dir = 'ltr';
+                        document.documentElement.lang = 'en';
+                        rtlBtn?.classList.remove('active');
+                        localStorage.setItem('dir', 'ltr');
+                    }
+                }
+                const savedDir = localStorage.getItem('dir');
+                savedDir === 'rtl' ? setRTL(true) : setRTL(false);
+
+                if (rtlBtn) {
+                    rtlBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        setRTL(document.documentElement.dir !== 'rtl');
+                    });
+                }
+
+                // ---------- EYE ICON TOGGLE PASSWORD VISIBILITY ----------
+                const toggleButtons = document.querySelectorAll('.toggle-password');
+                toggleButtons.forEach(button => {
+                    button.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('data-target');
+                        const passwordInput = document.getElementById(targetId);
+                        if (passwordInput) {
+                            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                            passwordInput.setAttribute('type', type);
+                            const icon = this.querySelector('i');
+                            if (icon) {
+                                if (type === 'text') {
+                                    icon.classList.remove('fa-eye-slash');
+                                    icon.classList.add('fa-eye');
+                                } else {
+                                    icon.classList.remove('fa-eye');
+                                    icon.classList.add('fa-eye-slash');
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // ---------- SOCIAL BUTTONS (Google & Apple) interactive demo ----------
+                const googleBtn = document.getElementById('googleSignupBtn');
+                const appleBtn = document.getElementById('appleSignupBtn');
+
+                if (googleBtn) {
+                    googleBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Social login would be implemented here
+                    });
+                }
+                if (appleBtn) {
+                    appleBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Social login would be implemented here
+                    });
+                }
+
+                // ---------- TERMS & PRIVACY LINKS ----------
+                const termsLink = document.getElementById('termsLink');
+                const privacyLink = document.getElementById('privacyLink');
+
+                if (termsLink) {
+                    termsLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Terms would open here
+                    });
+                }
+                if (privacyLink) {
+                    privacyLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        // Privacy policy would open here
+                    });
+                }
+
+                // ---------- PASSWORD MATCH + FORM SUBMIT ----------
+                const signupForm = document.getElementById('signupForm');
+                const successMsg = document.getElementById('signupSuccessMsg');
+
+                if (signupForm) {
+                    signupForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+
+                        const password = document.getElementById('signup-password')?.value;
+                        const confirm = document.getElementById('signup-confirm-password')?.value;
+                        const termsCheck = document.getElementById('terms');
+                        const fullName = document.getElementById('fullName')?.value;
+                        const email = document.getElementById('email')?.value;
+
+                        if (!fullName || !email) {
+                            alert('✨ Please enter your name and email address to join the flow!');
+                            return false;
+                        }
+
+                        if (password !== confirm) {
+                            alert('⚠️ Passwords do not match. Please re-enter your password.');
+                            return false;
+                        }
+
+                        if (password && password.length < 6) {
+                            alert('🔐 Password must be at least 6 characters long.');
+                            return false;
+                        }
+
+                        if (!termsCheck.checked) {
+                            alert('📜 Please accept the Terms of Service and Privacy Policy to continue.');
+                            return false;
+                        }
+
+                        // Direct redirect to login.html as requested
+                        window.location.href = 'login.html';
+
+                        return true;
+                    });
+                }
+            })();
+    </script>
+</body>
+
+</html>

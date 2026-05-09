@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoops & Flow | Home 2 — Hula Hoop Dance & Flow Arts Studio</title>
+    <!-- Custom Favicon - Hula Hoop -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23E07A5F'/%3E%3Ccircle cx='50' cy='50' r='28' fill='%23F4F1DE'/%3E%3Ccircle cx='50' cy='50' r='12' fill='%23E07A5F'/%3E%3Cpath fill='%2381B29A' d='M50 25 L56 40 L72 40 L60 50 L66 65 L50 55 L34 65 L40 50 L28 40 L44 40 Z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        terracotta: '#E07A5F',
+                        slate: '#3D405B',
+                        sage: '#81B29A',
+                        cream: '#F4F1DE',
+                        dusk: '#6D6875',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'hoop-spin': 'hoopSpin 3s linear infinite',
+                        'marquee': 'marquee 20s linear infinite',
+                        'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatSlow: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        spinSlow: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(40px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        hoopSpin: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.05)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        pulseSoft: {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(1)' },
+                            '50%': { opacity: '1', transform: 'scale(1.02)' },
+                        },
+                    },
+                    backgroundImage: {
+                        'warm-pattern': "radial-gradient(circle at 10% 30%, rgba(224, 122, 95, 0.06) 0%, transparent 60%)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F4F1DE;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #2D2A3A;
+        }
+
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8E4D8;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #E07A5F;
+            border-radius: 10px;
+        }
+
+        .studio-card {
+            background: white;
+            border-radius: 28px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(224, 122, 95, 0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .studio-card {
+            background: #3D3B4D;
+            border-color: rgba(224, 122, 95, 0.25);
+        }
+
+        .studio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(224, 122, 95, 0.3);
+            border-color: #E07A5F;
+        }
+
+        .btn-primary {
+            background-color: #E07A5F;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(224, 122, 95, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #C56A4F;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(224, 122, 95, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #E07A5F;
+            color: #E07A5F;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #E07A5F;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .dropdown-studio {
+            position: relative;
+        }
+
+        .dropdown-studio-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid #E07A5F20;
+        }
+
+        .dark .dropdown-studio-menu {
+            background: #3D3B4D;
+            border-color: #E07A5F40;
+        }
+
+        .dropdown-studio:hover .dropdown-studio-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #3D405B;
+        }
+
+        .dark .dropdown-item {
+            color: #F4F1DE;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            padding-left: 1.7rem;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        .mobile-menu-studio {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-studio {
+            background: #2D2A3A;
+        }
+
+        .mobile-menu-studio.open {
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .social-icon-studio {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F4F1DE;
+            color: #E07A5F;
+            transition: all 0.3s;
+        }
+
+        .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-studio {
+            background-color: #6D6875;
+            color: #F4F1DE;
+        }
+
+        .dark .social-icon-studio:hover {
+            background-color: #E07A5F;
+            color: #2D2A3A;
+        }
+
+        .avatar-circle {
+            background-color: #81B29A;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Home 2 specific styles */
+        .hero-glow {
+            background: radial-gradient(ellipse at 70% 40%, rgba(224, 122, 95, 0.12) 0%, transparent 60%);
+        }
+
+        .floating-badge {
+            animation: floatSlow 4s ease-in-out infinite;
+        }
+
+        .hover-scale-soft:hover {
+            transform: scale(1.02);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: 2rem;
+            animation: marquee 22s linear infinite;
+            width: max-content;
+        }
+
+        html[dir="rtl"] .marquee-track {
+            animation: marquee 22s linear infinite reverse;
+        }
+    </style>
+</head>
+
+<body class="warm-pattern overflow-x-hidden">
+
+    <!-- =============== HEADER (IDENTICAL TO REFERENCE) =============== -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#2D2A3A]/95 backdrop-blur-md border-b border-cream dark:border-dusk/30 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='#'>
+                    <div
+                        class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300 hoop-icon">
+                        <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-slate dark:text-white">HOOP&FLOW</span>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto">
+                    <div class="hidden lg:flex items-center gap-3 xl:gap-6">
+                        <div class="dropdown-studio">
+                            <button
+                                class="nav-link text-terracotta font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                                Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                            </button>
+                            <div class="dropdown-studio-menu">
+                                <a class="dropdown-item" href="index.html"> Home 1</a>
+                                <a class="dropdown-item text-terracotta font-medium" href="home2.html"> Home 2</a>
+                            </div>
+                        </div>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="about.html">About</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="class.html">Classes</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="service.html">Services</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="event.html">Events</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="gallery.html">Gallery</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="book.html">Book Now</a>
+                        <a class="nav-link text-slate dark:text-gray-200 hover:text-terracotta transition whitespace-nowrap text-sm xl:text-base"
+                            href="contact.html">Contact</a>
+                    </div>
+                    <div class="hidden lg:flex items-center gap-4 ml-2">
+                        <div class="dropdown-studio">
+                            <button
+                                class="w-10 h-10 rounded-full bg-terracotta/10 text-terracotta hover:bg-terracotta hover:text-white transition flex items-center justify-center">
+                                <i class="fas fa-user"></i>
+                            </button>
+                            <div class="dropdown-studio-menu" style="left: auto; right: 0;">
+                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-in-alt"></i> Log in</a>
+                                <a class="dropdown-item" href="signup.html"><i class="fas fa-user-plus"></i> Sign Up</a>
+                            </div>
+                        </div>
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-cream dark:bg-dusk/40 text-terracotta hover:scale-110 transition flex items-center justify-center font-bold text-base">⇄</button>
+                    </div>
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-terracotta text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="mobile-menu-studio lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('home-mobile-drop').classList.toggle('hidden'); document.getElementById('home-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-terracotta border-l-4 border-terracotta bg-terracotta/5 transition cursor-pointer">
+                            <span>Home</span>
+                            <i id="home-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-terracotta hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="index.html"><i class="fas fa-home w-6 text-terracotta"></i> Home 1</a>
+                            <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                                href="home2.html"><i class="fas fa-spa w-6 text-terracotta/70"></i> Home 2</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="class.html">Classes</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="service.html">Services</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="event.html">Events</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="gallery.html">Gallery</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="book.html">Book Now</a>
+                    <a class="block py-3 px-4 font-medium text-slate dark:text-gray-200 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-cream dark:border-dusk/40">
+                        <a class="text-center py-2 rounded-full font-medium text-terracotta border border-terracotta"
+                            href="login.html">Log in</a>
+                        <a class="text-center btn-primary py-2 rounded-full" href="signup.html">Sign Up Free</a>
+                        <div class="flex gap-3">
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden"></i><i class="fas fa-sun hidden dark:inline"></i>
+                                Theme
+                            </button>
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-cream dark:bg-dusk/40 text-terracotta text-sm font-medium flex items-center gap-2 justify-center">⇄
+                                RTL Mode</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- =============== HOME 2 HERO - DYNAMIC GLASSMORPHISM DESIGN =============== -->
+    <section class="pt-32 pb-24 md:pt-40 md:pb-32 relative overflow-hidden bg-cream/20 dark:bg-slate/10">
+        <!-- Abstract Background Shapes -->
+        <div
+            class="absolute top-20 right-0 w-[500px] h-[500px] bg-terracotta/20 dark:bg-terracotta/10 rounded-full blur-[80px] animate-pulse-soft mix-blend-multiply dark:mix-blend-screen z-0">
+        </div>
+        <div
+            class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-sage/20 dark:bg-sage/10 rounded-full blur-[60px] animate-float-slow mix-blend-multiply dark:mix-blend-screen z-0">
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Content (Left) -->
+                <div class="lg:col-span-6 space-y-8 animate-slide-up">
+                    <div
+                        class="inline-flex items-center gap-3 bg-white/60 dark:bg-dusk/40 backdrop-blur-md border border-white/50 dark:border-white/10 rounded-full px-5 py-2 shadow-sm">
+                        <span class="flex h-3 w-3 relative">
+                            <span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-terracotta opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-terracotta"></span>
+                        </span>
+                        <span
+                            class="text-sm font-semibold tracking-wide text-slate dark:text-gray-100 uppercase">Premium
+                            Hula Hoop Studio</span>
+                    </div>
+
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-tight text-slate dark:text-white">
+                        Find Your <br>
+                        <span
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-terracotta via-orange-400 to-terracotta animate-pulse-soft">Rhythm
+                            & Flow</span>
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-dusk dark:text-gray-300 max-w-lg leading-relaxed">
+                        Transform your movement with our expert-led hoop classes. Experience the perfect blend of
+                        fitness, dance, and creative expression.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#"
+                            class="btn-primary px-8 py-4 rounded-full flex items-center justify-center gap-3 text-lg group w-full sm:w-auto shadow-[0_8px_20px_rgba(224,122,95,0.3)] hover:shadow-[0_12px_25px_rgba(224,122,95,0.4)]">
+                            <span>Join the Flow</span>
+                            <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#"
+                            class="btn-outline px-8 py-4 rounded-full flex items-center justify-center gap-3 text-lg w-full sm:w-auto bg-white/50 dark:bg-transparent backdrop-blur-sm">
+                            <i class="fas fa-play text-terracotta group-hover:text-white transition-colors"></i>
+                            <span>Watch Demo</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Visual Composition (Right) -->
+                <div class="lg:col-span-6 relative flex justify-center lg:justify-end mt-10 lg:mt-0">
+                    <div class="relative w-full max-w-[500px] aspect-square">
+                        <!-- Main Image -->
+                        <div
+                            class="absolute top-0 right-0 w-[80%] h-[80%] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-[#3D3B4D] z-10 transform transition hover:scale-[1.02] duration-500">
+                            <img src="/assest/da.jpg" alt="Dancer with hoop" class="w-full h-full object-cover">
+                            <!-- Overlay Gradient -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate/40 to-transparent"></div>
+                        </div>
+
+                        <!-- Secondary Overlapping Image -->
+                        <div
+                            class="absolute bottom-0 left-0 w-[55%] h-[55%] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-[#3D3B4D] z-20 animate-float-slow">
+                            <img src="/assest/led.jpg" alt="LED hoop flow" class="w-full h-full object-cover">
+                        </div>
+
+                        <!-- Floating Glass Badge -->
+                        <div
+                            class="absolute top-1/2 left-[-20px] transform -translate-y-1/2 bg-white/80 dark:bg-slate/80 backdrop-blur-xl border border-white/50 p-4 rounded-2xl shadow-xl z-30 animate-bounce-gentle flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center">
+                                <i class="fas fa-star text-terracotta text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-xl text-slate dark:text-white">4.9/5</div>
+                                <div class="text-xs font-semibold text-dusk uppercase tracking-wider">Top Rated Studio
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== FEATURE MARQUEE TAPE (dynamic fresh element) =============== -->
+    <div class="bg-terracotta/10 dark:bg-slate/40 py-4 border-y border-terracotta/20 overflow-hidden whitespace-nowrap">
+        <div class="marquee-track inline-flex text-slate dark:text-white font-medium">
+            <span class="mx-6"><i class="fas fa-circle-notch text-terracotta animate-spin-slow"></i> Waist Hooping
+                101</span>
+            <span class="mx-6"><i class="fas fa-fire text-terracotta animate-spin-slow"></i> LED Performance Flow</span>
+            <span class="mx-6"><i class="fas fa-hand-sparkles text-terracotta animate-spin-slow"></i> Doubles & Triples
+                Hoops</span>
+            <span class="mx-6"><i class="fas fa-smile text-terracotta animate-spin-slow"></i> Meditation with
+                Hoops</span>
+            <span class="mx-6"><i class="fas fa-yin-yang text-terracotta animate-spin-slow"></i> Flow Arts Fusion</span>
+            <span class="mx-6"><i class="fas fa-circle-notch text-terracotta animate-spin-slow"></i> Waist Hooping
+                101</span>
+            <span class="mx-6"><i class="fas fa-fire text-terracotta animate-spin-slow"></i> LED Performance Flow</span>
+            <span class="mx-6"><i class="fas fa-hand-sparkles text-terracotta animate-spin-slow"></i> Doubles & Triples
+                Hoops</span>
+        </div>
+    </div>
+
+
+    <!-- =============== EXPERIENCE PILLARS (icon grid) =============== -->
+    <section class="py-20 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <span
+                    class="text-sage text-sm uppercase tracking-wider font-bold bg-cream/50 px-4 py-1 rounded-full">The
+                    hoop essence</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-slate dark:text-white">Flow state
+                    starts <span class="text-terracotta">here</span></h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div
+                    class="text-center p-6 rounded-2xl bg-cream/40 dark:bg-slate/30 transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-terracotta/15 rounded-2xl flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-dove text-terracotta text-2xl"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Mindful Motion</h3>
+                    <p class="text-dusk dark:text-gray-300">Blend breath with rhythm for inner peace.</p>
+                </div>
+                <div
+                    class="text-center p-6 rounded-2xl bg-cream/40 dark:bg-slate/30 transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-terracotta/15 rounded-2xl flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-users text-terracotta text-2xl"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Tribe Energy</h3>
+                    <p class="text-dusk dark:text-gray-300">Supportive community, no judgment.</p>
+                </div>
+                <div
+                    class="text-center p-6 rounded-2xl bg-cream/40 dark:bg-slate/30 transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-terracotta/15 rounded-2xl flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-music text-terracotta text-2xl"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Beats & Flow</h3>
+                    <p class="text-dusk dark:text-gray-300">Curated playlists for each class.</p>
+                </div>
+                <div
+                    class="text-center p-6 rounded-2xl bg-cream/40 dark:bg-slate/30 transition-all hover:-translate-y-2">
+                    <div class="w-16 h-16 bg-terracotta/15 rounded-2xl flex items-center justify-center mx-auto mb-4"><i
+                            class="fas fa-lightbulb text-terracotta text-2xl"></i></div>
+                    <h3 class="font-bold text-xl mb-2">Creative Sparks</h3>
+                    <p class="text-dusk dark:text-gray-300">Choreography & flow labs weekly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== INTERACTIVE CARD SHOWCASE (classes in new layout) =============== -->
+    <section class="py-20 bg-cream/30 dark:bg-slate/20">
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="order-2 lg:order-1 relative space-y-5">
+                    <span
+                        class="text-sage font-bold text-sm uppercase bg-white/60 dark:bg-dusk/30 px-3 py-1 rounded-full">Signature
+                        hoop flows</span>
+                    <h2 class="text-3xl font-display font-bold text-slate dark:text-white">Choose your <span
+                            class="text-terracotta">hoop journey</span></h2>
+                    <div class="space-y-4">
+                        <div class="flex gap-4 items-start p-4 rounded-xl bg-white dark:bg-slate/40 shadow-sm">
+                            <div
+                                class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center shrink-0">
+                                <i class="fas fa-seedling text-terracotta text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Beginner’s Bliss</h3>
+                                <p class="text-sm text-dusk">Learn waist hooping + 10 essential tricks.</p><span
+                                    class="text-terracotta font-bold text-sm">$20 / drop-in</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start p-4 rounded-xl bg-white dark:bg-slate/40 shadow-sm">
+                            <div
+                                class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center shrink-0">
+                                <i class="fas fa-bolt text-terracotta text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Fire Flow Prep</h3>
+                                <p class="text-sm text-dusk">LED & fire-safe hoop techniques. Advanced.</p><span
+                                    class="text-terracotta font-bold text-sm">$30 / session</span>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 items-start p-4 rounded-xl bg-white dark:bg-slate/40 shadow-sm">
+                            <div
+                                class="w-12 h-12 rounded-full bg-terracotta/20 flex items-center justify-center shrink-0">
+                                <i class="fas fa-heart text-terracotta text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold">Therapeutic Flow</h3>
+                                <p class="text-sm text-dusk">Slow tempo, deep stretching, hoop meditation.</p><span
+                                    class="text-terracotta font-bold text-sm">$18 / class</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center gap-2 text-terracotta font-semibold mt-4">Full class
+                        catalog <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="order-1 lg:order-2"><img src="/assest/lig2.jpg" alt="Hooper silhouette"
+                        class="rounded-3xl shadow-xl border-8 border-white dark:border-dusk/40 w-full"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== TESTIMONIALS - mosaic style =============== -->
+    <section class="py-20 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12"><i class="fas fa-comment-dots text-terracotta text-3xl opacity-60"></i>
+                <h2 class="text-3xl font-display font-bold mt-2">Hooper <span class="text-terracotta">voices</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-cream/70 dark:bg-slate/40 p-6 rounded-2xl shadow-sm border-l-4 border-terracotta">
+                    <div class="flex text-terracotta mb-2">★★★★★</div>
+                    <p class="italic">"I discovered my flow state here. The energy is unmatched, and teachers actually
+                        care."</p>
+                    <p class="font-bold mt-3">— Jess M.</p>
+                </div>
+                <div class="bg-cream/70 dark:bg-slate/40 p-6 rounded-2xl shadow-sm border-l-4 border-terracotta">
+                    <div class="flex text-terracotta mb-2">★★★★★</div>
+                    <p class="italic">"Best decision ever! From zero coordination to performing at a showcase. Hoop&Flow
+                        is home."</p>
+                    <p class="font-bold mt-3">— Diego R.</p>
+                </div>
+                <div class="bg-cream/70 dark:bg-slate/40 p-6 rounded-2xl shadow-sm border-l-4 border-terracotta">
+                    <div class="flex text-terracotta mb-2">★★★★★</div>
+                    <p class="italic">"The LED hoops and community jams are next-level. So grateful for this space."</p>
+                    <p class="font-bold mt-3">— Chloe L.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== SPECIAL EVENT TEASER - HOOP CAMP (new feature) =============== -->
+    <section class="py-20 bg-terracotta/5 relative">
+        <div class="container mx-auto px-6 text-center">
+            <span class="bg-terracotta/20 text-terracotta px-4 py-1 rounded-full text-sm font-bold inline-block mb-4">✨
+                limited spots ✨</span>
+            <h2 class="text-4xl font-display font-bold text-slate dark:text-white mb-4">🔥 April Hoop Camp: <span
+                    class="text-terracotta"> Flow Immersion</span></h2>
+            <p class="max-w-2xl mx-auto text-dusk dark:text-gray-300 mb-6">3 days of intensive workshops, hoop making,
+                choreography, and sunset jams. All levels.</p>
+            <div class="flex justify-center gap-5 flex-wrap"><a href="#" class="btn-primary px-7 py-3 rounded-full"><i
+                        class="fas fa-ticket-alt"></i> Reserve your hoop camp pass</a><a href="#"
+                    class="btn-outline px-7 py-3 rounded-full">Learn more →</a></div>
+        </div>
+    </section>
+
+
+    <!-- =============== INSTAGRAM FEED PREVIEW (alternative fresh section) =============== -->
+    <section class="py-20 bg-white dark:bg-[#2D2A3A]">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center gap-2 items-center mb-3"><i
+                    class="fab fa-instagram text-terracotta text-3xl"></i><span
+                    class="font-display text-2xl font-bold">@hoopandflow</span></div>
+            <p class="text-dusk mb-8">Follow our hoop journey for daily inspiration & flow tips</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <img src="/assest/child.jpg"
+                    class="rounded-xl w-full h-32 object-cover shadow hover:scale-105 transition">
+                <img src="/assest/led1.jpg"
+                    class="rounded-xl w-full h-32 object-cover shadow hover:scale-105 transition">
+                <img src="/assest/ins1.jpg"
+                    class="rounded-xl w-full h-32 object-cover shadow hover:scale-105 transition">
+                <img src="/assest/ins.jpg"
+                    class="rounded-xl w-full h-32 object-cover shadow hover:scale-105 transition">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- =============== CTA BANNER (first hoop adventure) =============== -->
+    <section class="py-20" style="background: linear-gradient(115deg, #3D405B 0%, #2D2A3A 100%);">
+        <div class="container mx-auto px-6 text-center">
+            <i class="fas fa-gem text-5xl text-terracotta mb-4"></i>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-3">Ready to unleash your inner flow?
+            </h2>
+            <p class="text-cream/80 text-lg mb-6">First time hoopers get a FREE intro class + hoop rental.</p>
+            <a href="#"
+                class="bg-terracotta hover:bg-terracotta/90 text-white px-10 py-3 rounded-full inline-flex items-center gap-2 text-lg shadow-xl transition-transform hover:scale-105"><i
+                    class="fas fa-gift"></i> Claim free hoop class</a>
+        </div>
+    </section>
+
+
+    <!-- =============== FOOTER (IDENTICAL TO REFERENCE) =============== -->
+    <footer class="bg-slate text-gray-300 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-3 mb-6">
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-terracotta rounded-xl flex items-center justify-center shadow-lg">
+                            <i class="fas fa-circle-notch text-white text-base md:text-lg animate-spin-slow"></i>
+                        </div>
+                        <span
+                            class="text-lg md:text-2xl font-display font-bold tracking-tight text-white">HOOP&FLOW</span>
+                    </div>
+                    <p class="mb-5 text-gray-400 text-sm">Where hula hoop dance meets freedom. Join our vibrant flow
+                        community today.</p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-studio"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-studio"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">About Our
+                                Studio</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Class
+                                Schedule</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Private Hoop
+                                Sessions</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Flow Community</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
+                                Instructor</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
+                        </li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
+                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="text-center md:text-left">
+                    <h4 class="text-sage font-bold text-lg mb-5">Hoop Studio</h4>
+                    <ul class="space-y-3">
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-map-marker-alt text-terracotta mt-1"></i><span>42 Flow Avenue, Arts
+                                District, LA</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-phone-alt text-terracotta"></i><span>(555) 123-HOOP</span></li>
+                        <li class="flex justify-center md:justify-start gap-3 text-gray-400"><i
+                                class="fas fa-envelope text-terracotta"></i><span>hello@hoopandflow.com</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-dusk/30 text-center text-sm text-gray-500">
+                <p>&copy; 2026 HOOP&FLOW | Hula Hoop Dance & Flow Arts Studio. All rights reserved. <i
+                        class="fas fa-heart text-terracotta mx-1"></i> Keep flowing, keep hooping.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => { btn?.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); }); });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            function setRTL(isRTL) { const html = document.documentElement; html.setAttribute('dir', isRTL ? 'rtl' : 'ltr'); localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr'); }
+            if (localStorage.getItem('dir') === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            document.getElementById('rtl-toggle')?.addEventListener('click', () => { const newDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; setRTL(newDir === 'rtl'); });
+            document.getElementById('mobile-rtl-toggle')?.addEventListener('click', () => { const newDir = document.documentElement.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl'; setRTL(newDir === 'rtl'); const mMenu = document.getElementById('mobile-menu'); if (mMenu?.classList.contains('open')) mMenu.classList.remove('open'); });
+
+            const mobileToggle = document.getElementById('mobile-toggle'), mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) { mobileToggle.addEventListener('click', () => { mobileMenu.classList.toggle('open'); const icon = mobileToggle.querySelector('i'); icon.classList.toggle('fa-bars'); icon.classList.toggle('fa-times'); }); mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => link.addEventListener('click', () => { mobileMenu.classList.remove('open'); if (mobileToggle.querySelector('i')) { mobileToggle.querySelector('i').classList.remove('fa-times'); mobileToggle.querySelector('i').classList.add('fa-bars'); } })); }
+        });
+    </script>
+</body>
+
+</html>
