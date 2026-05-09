@@ -480,9 +480,9 @@
                     <i class="fas fa-circle-notch text-terracotta animate-spin-slow"></i>
                     <span class="text-sm font-semibold text-slate dark:text-white">Find Your Flow</span>
                 </div>
-                <h1 class="text-5xl md:text-6xl font-display font-bold mb-5 text-slate dark:text-white">Hoop <span
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-5 text-slate dark:text-white">Hoop <span
                         class="text-terracotta">Classes</span> for Every Body</h1>
-                <p class="text-lg text-dusk dark:text-gray-300 max-w-2xl mx-auto">From first-time spinners to advanced
+                <p class="text-base md:text-lg text-dusk dark:text-gray-300 max-w-2xl mx-auto">From first-time spinners to advanced
                     flow artists — discover classes designed to ignite your joy, build strength, and unleash creativity.
                 </p>
             </div>
@@ -493,21 +493,21 @@
     <!-- =============== FILTER TABS (interactive class categories) =============== -->
     <section class="pb-8">
         <div class="container mx-auto px-6">
-            <div class="flex flex-wrap justify-center gap-3">
+            <div class="flex overflow-x-auto no-scrollbar md:flex-wrap justify-start md:justify-center gap-3 pb-4 -mx-6 px-6 md:mx-0 md:px-0">
                 <button
-                    class="filter-btn active-filter px-6 py-2 rounded-full bg-terracotta text-white font-medium transition-all"
+                    class="filter-btn active-filter px-6 py-2 rounded-full bg-terracotta text-white font-medium transition-all whitespace-nowrap"
                     data-filter="all">All Classes</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
                     data-filter="beginner">Beginner</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
                     data-filter="intermediate">Intermediate</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
                     data-filter="advanced">Advanced</button>
                 <button
-                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all"
+                    class="filter-btn px-6 py-2 rounded-full bg-white dark:bg-slate/40 text-slate dark:text-gray-300 hover:bg-terracotta/20 transition-all whitespace-nowrap"
                     data-filter="specialty">Specialty</button>
             </div>
         </div>
@@ -517,7 +517,7 @@
     <!-- =============== CLASS GRID (cards with filter) =============== -->
     <section class="py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="class-grid">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="class-grid">
                 <!-- Beginner Class 1 -->
                 <div class="class-card studio-card overflow-hidden flex flex-col h-full" data-level="beginner">
                     <div class="relative h-52 overflow-hidden shrink-0">
@@ -695,8 +695,8 @@
                 <p class="text-dusk dark:text-gray-300 max-w-lg mx-auto">Drop in anytime — all levels welcome. See
                     what's spinning this week!</p>
             </div>
-            <div class="max-w-5xl mx-auto">
-                <table class="w-full border-collapse">
+            <div class="max-w-5xl mx-auto overflow-x-auto no-scrollbar -mx-6 px-6 md:mx-auto md:px-0">
+                <table class="w-full border-collapse min-w-[700px]">
                     <thead>
                         <tr class="border-b-2 border-terracotta/30">
                             <th class="text-left py-4 px-4 text-slate dark:text-white font-bold">Day</th>
@@ -782,7 +782,7 @@
                         class="text-terracotta">Memberships</span></h2>
                 <p class="text-dusk dark:text-gray-300">Flexible options to keep you flowing</p>
             </div>
-            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
                 <div
                     class="membership-card bg-white dark:bg-slate/40 rounded-2xl p-6 text-center border-2 border-transparent">
                     <h3 class="text-xl font-bold mb-2">Drop-In</h3>
