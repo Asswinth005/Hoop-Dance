@@ -329,6 +329,32 @@
         .value-card:hover .value-icon {
             transform: scale(1.1) rotate(5deg);
         }
+
+        /* RTL Fixes */
+        [dir="rtl"] .ml-auto {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+
+        [dir="rtl"] .border-l-4 {
+            border-left-width: 0 !important;
+            border-right-width: 4px !important;
+        }
+
+        [dir="rtl"] .ml-1 {
+            margin-left: 0 !important;
+            margin-right: 0.25rem !important;
+        }
+
+        [dir="rtl"] .dropdown-studio-menu {
+            left: auto;
+            right: 0;
+        }
+
+        [dir="rtl"] .dropdown-studio-menu[style*="left: auto; right: 0;"] {
+            right: auto;
+            left: 0;
+        }
     </style>
 </head>
 
@@ -350,7 +376,7 @@
                     </div>
                 </a>
 
-                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto">
+                <div class="flex items-center gap-3 lg:gap-4 xl:gap-8 ml-auto rtl:ml-0 rtl:mr-auto">
                     <div class="hidden lg:flex items-center gap-3 xl:gap-6">
                         <div class="dropdown-studio">
                             <button
@@ -415,9 +441,9 @@
                         </button>
                         <div id="home-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
                             <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
-                                href="index.html"><i class="fas fa-home w-6"></i> Home 1</a>
+                                href="index.html"><i class="fas fa-home w-6 text-terracotta"></i> Home 1</a>
                             <a class="block py-2.5 px-4 font-medium text-slate dark:text-gray-300 hover:bg-cream dark:hover:bg-dusk/30 rounded-xl transition"
-                                href="home2.html"><i class="fas fa-spa w-6"></i> Home 2</a>
+                                href="home2.html"><i class="fas fa-home w-6 text-terracotta"></i> Home 2</a>
                         </div>
                     </div>
                     <a class="block py-3 px-4 font-medium text-terracotta bg-terracotta/5 border-l-4 border-terracotta rounded-xl transition"
