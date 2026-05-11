@@ -370,11 +370,16 @@
         }
 
         html[dir="rtl"] .md\:text-left {
-            text-align: right;
+            text-align: right !important;
         }
 
-        html[dir="rtl"] .justify-start {
-            justify-content: flex-end;
+        [dir="rtl"] .text-center {
+            text-align: center;
+        }
+
+        [dir="rtl"] .mr-2 {
+            margin-right: 0 !important;
+            margin-left: 0.5rem !important;
         }
 
 
