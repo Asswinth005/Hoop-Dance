@@ -571,18 +571,105 @@
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="#"
-                        class="btn-primary px-8 py-3 rounded-full inline-flex items-center gap-2 text-base shadow-lg">
-                        <i class="fas fa-calendar-alt"></i> Try a Free Hoop Class
+                    <a href="book.html"
+                        class="btn-primary px-8 py-3 rounded-full inline-flex items-center gap-2 text-base shadow-lg animate-bounce-gentle">
+                        <i class="fas fa-calendar-alt"></i> Book a Class
                     </a>
-                    <a href="#" class="btn-outline px-8 py-3 rounded-full inline-flex items-center gap-2 text-base">
-                        <i class="fas fa-play-circle"></i> Watch Flow Demo
+                    <a href="signup.html" class="btn-outline px-8 py-3 rounded-full inline-flex items-center gap-2 text-base bg-white/40 dark:bg-transparent backdrop-blur-sm">
+                        <i class="fas fa-user-plus"></i> Register to Learn (Free)
                     </a>
                 </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Goal Funnel / Journey Section -->
+    <section class="py-16 bg-cream/35 dark:bg-slate/10 relative z-20 border-t border-cream dark:border-dusk/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12 animate-slide-up">
+                <span class="text-sage font-semibold tracking-wider text-sm uppercase bg-white/60 dark:bg-dusk/30 px-5 py-1.5 rounded-full inline-block">🚀 Begin Here 🚀</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-slate dark:text-white">Start Your <span class="text-terracotta">Flow Journey</span> Today</h2>
+                <p class="text-dusk dark:text-gray-300 max-w-xl mx-auto mt-2 text-sm md:text-base">Choose the perfect path to start your hula hoop experience, online or in the studio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Path 1: Register to Learn -->
+                <div class="studio-card p-8 flex flex-col justify-between h-full relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-sage/10 rounded-bl-full transition-all duration-300 group-hover:scale-110"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-sage/15 flex items-center justify-center mb-6 text-sage text-2xl">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="bg-sage/10 text-sage text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Online Learning</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2 text-slate dark:text-white">Register to Learn</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed mb-6">
+                            Create your free student account to instantly unlock intro video tutorials, flow trick libraries, and connect with our global online community.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="border-t border-cream dark:border-dusk/30 pt-4 mb-4 flex items-center justify-between">
+                            <span class="text-dusk text-xs">Access Level</span>
+                            <span class="text-sage font-bold text-sm">Always Free</span>
+                        </div>
+                        <a href="signup.html" class="btn-outline w-full py-2.5 flex items-center justify-center gap-2 text-sm font-semibold group-hover:bg-terracotta group-hover:text-white transition-all duration-300">
+                            Create Free Account <i class="fas fa-user-plus text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Path 2: Book a Class -->
+                <div class="studio-card p-8 flex flex-col justify-between h-full relative overflow-hidden group border-terracotta/40 shadow-md">
+                    <!-- Popular badge -->
+                    <div class="absolute top-4 right-4 bg-terracotta text-white text-[10px] uppercase font-bold px-2.5 py-1 rounded-full tracking-wider shadow">Most Popular</div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-terracotta/15 flex items-center justify-center mb-6 text-terracotta text-2xl">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <span class="bg-terracotta/10 text-terracotta text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">In-Studio Class</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2 text-slate dark:text-white">Book a Class</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed mb-6">
+                            Reserve a slot in our daily, interactive group sessions. From beginner foundations to advanced doubles and LED choreography, we have a class for you.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="border-t border-cream dark:border-dusk/30 pt-4 mb-4 flex items-center justify-between">
+                            <span class="text-dusk text-xs">Trial Promo</span>
+                            <span class="text-terracotta font-bold text-sm">First Class Free</span>
+                        </div>
+                        <a href="book.html" class="btn-primary w-full py-2.5 flex items-center justify-center gap-2 text-sm font-semibold shadow-md">
+                            View Classes & Book <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Path 3: Schedule a Visit -->
+                <div class="studio-card p-8 flex flex-col justify-between h-full relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-dusk/10 rounded-bl-full transition-all duration-300 group-hover:scale-110"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-dusk/15 flex items-center justify-center mb-6 text-dusk dark:text-gray-300 text-2xl">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <span class="bg-dusk/15 text-dusk dark:text-gray-300 text-xs font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">Studio Tour</span>
+                        <h3 class="text-xl font-bold mt-3 mb-2 text-slate dark:text-white">Schedule a Visit</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed mb-6">
+                            Not ready to spin yet? Schedule a personal studio tour in the LA Arts District. Meet our instructors, view our facilities, and feel the vibe.
+                        </p>
+                    </div>
+                    <div class="mt-auto">
+                        <div class="border-t border-cream dark:border-dusk/30 pt-4 mb-4 flex items-center justify-between">
+                            <span class="text-dusk text-xs">Duration</span>
+                            <span class="text-slate dark:text-gray-200 font-bold text-sm">15-Min Private Tour</span>
+                        </div>
+                        <a href="contact.html?action=visit#contactForm" class="btn-outline w-full py-2.5 flex items-center justify-center gap-2 text-sm font-semibold group-hover:bg-terracotta group-hover:text-white transition-all duration-300">
+                            Book Free Studio Tour <i class="fas fa-calendar-alt text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Stats Section -->
     <section class="py-20 bg-white dark:bg-[#2D2A3A] border-y border-cream dark:border-dusk/30 relative z-20">
@@ -645,7 +732,7 @@
                         choreography. No experience needed — just bring your smile!</p>
                     <div class="flex items-center justify-between mt-auto pt-4">
                         <span class="text-terracotta font-bold text-lg">$22</span>
-                        <a href="#" class="text-terracotta font-medium hover:underline">Learn more →</a>
+                        <a href="class.html" class="text-terracotta font-medium hover:underline">Learn more →</a>
                     </div>
                 </div>
 
@@ -658,7 +745,7 @@
                         showcases. Build your unique flow style.</p>
                     <div class="flex items-center justify-between mt-auto pt-4">
                         <span class="text-terracotta font-bold text-lg">$30</span>
-                        <a href="#" class="text-terracotta font-medium hover:underline">Learn more →</a>
+                        <a href="class.html" class="text-terracotta font-medium hover:underline">Learn more →</a>
                     </div>
                 </div>
 
@@ -671,13 +758,13 @@
                         dance for relaxation & inner joy.</p>
                     <div class="flex items-center justify-between mt-auto pt-4">
                         <span class="text-terracotta font-bold text-lg">$20</span>
-                        <a href="#" class="text-terracotta font-medium hover:underline">Learn more →</a>
+                        <a href="class.html" class="text-terracotta font-medium hover:underline">Learn more →</a>
                     </div>
                 </div>
             </div>
 
             <div class="text-center mt-10">
-                <a href="#" class="btn-outline px-7 py-2.5 rounded-full inline-flex items-center gap-2">View All Hoop
+                <a href="class.html" class="btn-outline px-7 py-2.5 rounded-full inline-flex items-center gap-2">View All Hoop
                     Classes <i class="fas fa-arrow-right text-sm"></i></a>
             </div>
         </div>
@@ -718,7 +805,7 @@
                                 showcases</span>
                         </div>
                     </div>
-                    <a href="#"
+                    <a href="about.html"
                         class="inline-flex items-center gap-2 text-terracotta font-semibold mt-6 border-b-2 border-terracotta pb-1 hover:gap-3 transition-all">Meet
                         our hoop coaches →</a>
                 </div>
@@ -756,7 +843,7 @@
                         <h3 class="text-xl font-bold text-slate dark:text-white mb-2">LED Hoop Flow Night</h3>
                         <p class="text-dusk dark:text-gray-300 mb-4 flex-1">Learn mesmerizing LED hoop tricks and light
                             painting. All hoops provided.</p>
-                        <a href="#"
+                        <a href="book.html"
                             class="text-terracotta font-medium hover:gap-2 transition-all flex items-center gap-1 text-sm mt-auto">Reserve
                             spot <i class="fas fa-arrow-right text-xs"></i></a>
                     </div>
@@ -775,7 +862,7 @@
                         <h3 class="text-xl font-bold text-slate dark:text-white mb-2">Doubles Hoop Mastery</h3>
                         <p class="text-dusk dark:text-gray-300 mb-4 flex-1">Take your flow to the next level with two
                             hoops. Learn isolation and timing.</p>
-                        <a href="#"
+                        <a href="book.html"
                             class="text-terracotta font-medium hover:gap-2 transition-all flex items-center gap-1 text-sm mt-auto">Reserve
                             spot <i class="fas fa-arrow-right text-xs"></i></a>
                     </div>
@@ -795,7 +882,7 @@
                         <h3 class="text-xl font-bold text-slate dark:text-white mb-2">Family Hoop Jam</h3>
                         <p class="text-dusk dark:text-gray-300 mb-4 flex-1">Fun hoop games, basic moves, and joyful flow
                             for everyone in the family.</p>
-                        <a href="#"
+                        <a href="book.html"
                             class="text-terracotta font-medium hover:gap-2 transition-all flex items-center gap-1 text-sm mt-auto">Reserve
                             spot <i class="fas fa-arrow-right text-xs"></i></a>
                     </div>
@@ -911,29 +998,29 @@
                 <div class="text-center md:text-left">
                     <h4 class="text-sage font-bold text-lg mb-5">Hoop Explore</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">About Our
+                        <li><a href="about.html" class="hover:text-terracotta transition block text-gray-400">About Our
                                 Studio</a></li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Class
+                        <li><a href="class.html" class="hover:text-terracotta transition block text-gray-400">Hoop Class
                                 Schedule</a></li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
+                        <li><a href="book.html" class="hover:text-terracotta transition block text-gray-400">Flow Workshops</a>
                         </li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Private Hoop
+                        <li><a href="book.html" class="hover:text-terracotta transition block text-gray-400">Private Hoop
                                 Sessions</a></li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
+                        <li><a href="book.html" class="hover:text-terracotta transition block text-gray-400">Hoop Gift Cards</a>
                         </li>
                     </ul>
                 </div>
                 <div class="text-center md:text-left">
                     <h4 class="text-sage font-bold text-lg mb-5">Flow Community</h4>
                     <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
+                        <li><a href="signup.html" class="hover:text-terracotta transition block text-gray-400">Hoop Membership</a>
                         </li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
+                        <li><a href="contact.html" class="hover:text-terracotta transition block text-gray-400">Become a Hoop
                                 Instructor</a></li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
+                        <li><a href="class.html" class="hover:text-terracotta transition block text-gray-400">Flow Arts Blog</a>
                         </li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
-                        <li><a href="#" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
+                        <li><a href="about.html" class="hover:text-terracotta transition block text-gray-400">Hoop FAQs</a></li>
+                        <li><a href="contact.html" class="hover:text-terracotta transition block text-gray-400">Contact Us</a></li>
                     </ul>
                 </div>
                 <div class="text-center md:text-left">

@@ -389,6 +389,23 @@
         html[dir="rtl"] .dropdown-item:hover {
             padding-left: 1.4rem;
             padding-right: 1.7rem;
+    </style>
+    <!-- Flatpickr (Calendar Datepicker) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <style>
+        .flatpickr-calendar {
+            border-radius: 20px !important;
+            font-family: 'Inter', sans-serif !important;
+        }
+        .flatpickr-day.selected {
+            background-color: #E07A5F !important;
+            border-color: #E07A5F !important;
+        }
+        .dark .flatpickr-input {
+            background-color: #161616 !important;
+            border-color: rgba(109, 104, 117, 0.4) !important;
+            color: #F4F1DE !important;
         }
     </style>
 </head>
@@ -578,53 +595,79 @@
                             <div>
                                 <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">First name
                                     *</label>
-                                <input type="text" required
+                                <input type="text" id="firstName" name="firstName" required
                                     class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">Last
                                     name</label>
-                                <input type="text"
+                                <input type="text" id="lastName" name="lastName"
                                     class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">Email address
                                 *</label>
-                            <input type="email" required
+                            <input type="email" id="emailAddress" name="emailAddress" required
                                 class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">Phone
                                 number</label>
-                            <input type="tel"
+                            <input type="tel" id="phoneNumber" name="phoneNumber"
                                 class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">What are you
                                 interested in? *</label>
-                            <select required
+                            <select id="interestSelect" name="interest" required
                                 class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
                                 <option value="">Select an option</option>
-                                <option>Group Classes</option>
-                                <option>Private Sessions</option>
-                                <option>Workshops & Events</option>
-                                <option>Membership Question</option>
-                                <option>General Inquiry</option>
+                                <option value="classes">Group Classes</option>
+                                <option value="private">Private Sessions</option>
+                                <option value="workshops">Workshops & Events</option>
+                                <option value="visit">Schedule a Studio Visit / Tour</option>
+                                <option value="membership">Membership Question</option>
+                                <option value="general">General Inquiry</option>
                             </select>
                         </div>
+                        
+                        <!-- Conditional Visit Scheduler -->
+                        <div id="visitDatePickerWrapper" class="hidden animate-slide-up space-y-4 bg-cream/10 dark:bg-slate/20 p-5 rounded-2xl border border-cream dark:border-dusk/20">
+                            <h3 class="text-sm font-semibold text-terracotta uppercase tracking-wider mb-2"><i class="fas fa-calendar-alt"></i> Select Tour Time</h3>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate dark:text-gray-200 mb-1">Preferred Date *</label>
+                                    <input type="text" id="visitDate" name="visitDate" placeholder="Select date"
+                                        class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition cursor-pointer">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate dark:text-gray-200 mb-1">Preferred Time *</label>
+                                    <select id="visitTime" name="visitTime" class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition">
+                                        <option value="">Select time slot</option>
+                                        <option>10:00 AM - 11:30 AM</option>
+                                        <option>11:30 AM - 1:00 PM</option>
+                                        <option>1:00 PM - 2:30 PM</option>
+                                        <option>2:30 PM - 4:00 PM</option>
+                                        <option>4:00 PM - 5:30 PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
                         <div>
-                            <label class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">Message
+                            <label id="messageLabel" class="block text-sm font-medium text-slate dark:text-gray-200 mb-1">Message
                                 *</label>
-                            <textarea rows="4" required
+                            <textarea id="contactMessage" name="message" rows="4" required
                                 class="form-input w-full px-4 py-3 rounded-xl border border-cream dark:border-dusk/40 bg-white dark:bg-slate/50 text-slate dark:text-white focus:border-terracotta transition"
                                 placeholder="Tell us about your hoop journey or ask anything..."></textarea>
                         </div>
-                        <button type="submit" class="btn-primary w-full py-3 rounded-xl font-semibold text-base"><i
-                                class="fas fa-paper-plane mr-2"></i> Send Message</button>
+                        <button type="submit" id="contactSubmitBtn" class="btn-primary w-full py-3 rounded-xl font-semibold text-base transition flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
                         <p class="text-xs text-dusk text-center mt-3">We respect your privacy. No spam, ever.</p>
                     </form>
-                    <div id="formSuccess" class="hidden mt-4 p-4 bg-sage/20 text-sage rounded-xl text-center">✨ Thanks
+                    <div id="formSuccess" class="hidden mt-4 p-4 bg-sage/20 text-sage rounded-xl text-center font-medium">✨ Thanks
                         for reaching out! We'll spin back to you soon.</div>
                 </div>
 
@@ -916,19 +959,114 @@
                 }));
             }
 
+            // Visit scheduling logic
+            const interestSelect = document.getElementById('interestSelect');
+            const visitDatePickerWrapper = document.getElementById('visitDatePickerWrapper');
+            const visitDate = document.getElementById('visitDate');
+            const visitTime = document.getElementById('visitTime');
+            const contactSubmitBtn = document.getElementById('contactSubmitBtn');
+            const contactMessage = document.getElementById('contactMessage');
+            const messageLabel = document.getElementById('messageLabel');
+
+            function toggleVisitFields() {
+                if (interestSelect && interestSelect.value === 'visit') {
+                    if (visitDatePickerWrapper) {
+                        visitDatePickerWrapper.classList.remove('hidden');
+                    }
+                    if (visitDate) visitDate.required = true;
+                    if (visitTime) visitTime.required = true;
+                    if (contactMessage) contactMessage.required = false;
+                    if (messageLabel) messageLabel.innerHTML = 'Message (Optional)';
+                    if (contactSubmitBtn) {
+                        contactSubmitBtn.innerHTML = '<i class="fas fa-calendar-check mr-2"></i> Schedule My Studio Tour';
+                    }
+                } else {
+                    if (visitDatePickerWrapper) {
+                        visitDatePickerWrapper.classList.add('hidden');
+                    }
+                    if (visitDate) visitDate.required = false;
+                    if (visitTime) visitTime.required = false;
+                    if (contactMessage) contactMessage.required = true;
+                    if (messageLabel) messageLabel.innerHTML = 'Message *';
+                    if (contactSubmitBtn) {
+                        contactSubmitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i> Send Message';
+                    }
+                }
+            }
+
+            if (interestSelect) {
+                interestSelect.addEventListener('change', toggleVisitFields);
+            }
+
+            // Flatpickr initialization for contact page
+            if (typeof flatpickr !== 'undefined' && visitDate) {
+                flatpickr("#visitDate", {
+                    dateFormat: "F j, Y",
+                    minDate: "today",
+                    maxDate: new Date().fp_incr(60),
+                    onChange: function (selectedDates, dateStr) {
+                        // Date chosen
+                    }
+                });
+            }
+
+            // Check URL query parameters and hash to preselect visit mode
+            const urlParams = new URLSearchParams(window.location.search);
+            const actionParam = urlParams.get('action');
+            const hash = window.location.hash;
+
+            if (actionParam === 'visit' || hash === '#schedule-visit' || hash === '#contactForm') {
+                if (interestSelect) {
+                    interestSelect.value = 'visit';
+                    toggleVisitFields();
+                    
+                    // Smooth scroll to contact form section
+                    setTimeout(() => {
+                        const targetSection = document.getElementById('contactForm');
+                        if (targetSection) {
+                            targetSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 300);
+                }
+            }
+
+            // Connect Visit Studio button inside the hero or header to trigger this
+            const visitStudioHeroBtn = document.querySelector('a[class*="border-terracotta"]');
+            if (visitStudioHeroBtn) {
+                visitStudioHeroBtn.setAttribute('href', '#contactForm');
+                visitStudioHeroBtn.addEventListener('click', (e) => {
+                    if (interestSelect) {
+                        interestSelect.value = 'visit';
+                        toggleVisitFields();
+                        document.getElementById('contactForm')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                });
+            }
+
             // Form submission handler
             const contactForm = document.getElementById('contactForm');
             const formSuccess = document.getElementById('formSuccess');
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
+                    
+                    // Customize success message dynamically
+                    if (interestSelect && interestSelect.value === 'visit') {
+                        const dateVal = visitDate ? visitDate.value : '';
+                        const timeVal = visitTime ? visitTime.value : '';
+                        formSuccess.innerHTML = `✨ <strong>Studio Tour Requested!</strong> We've received your request for <strong>${dateVal}</strong> at <strong>${timeVal}</strong>. We will email you confirmation details shortly!`;
+                    } else {
+                        formSuccess.innerHTML = "✨ <strong>Thanks for reaching out!</strong> We'll spin back to you soon.";
+                    }
+
                     contactForm.classList.add('hidden');
                     formSuccess.classList.remove('hidden');
                     setTimeout(() => {
                         contactForm.reset();
+                        toggleVisitFields(); // Reset field visibilities and requirements
                         contactForm.classList.remove('hidden');
                         formSuccess.classList.add('hidden');
-                    }, 3000);
+                    }, 4000);
                 });
             }
         });
