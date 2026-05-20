@@ -324,26 +324,26 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #3D405B;
-            margin-top: 0.5rem;
+            color: #000000;
+            margin-top: 1.75rem;
             margin-bottom: 0.25rem;
             text-align: center;
             line-height: 1.2;
         }
 
         .dark .welcome-title {
-            color: #F4F1DE;
+            color: #FFFFFF;
         }
 
         .welcome-subtitle {
             font-size: 0.9rem;
-            color: #6D6875;
+            color: #000000;
             text-align: center;
             margin-bottom: 0.5rem;
         }
 
         .dark .welcome-subtitle {
-            color: #B8B5C5;
+            color: #FFFFFF;
         }
 
 
@@ -532,21 +532,20 @@
                 <!-- remember + forgot -->
                 <div class="flex items-center justify-between text-xs md:text-sm">
                     <label
-                        class="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer text-dusk dark:text-gray-300">
+                        class="flex items-center space-x-2 rtl:space-x-reverse cursor-pointer text-black dark:text-white">
                         <input type="checkbox"
                             class="rounded border-gray-300 dark:border-gray-600 text-terracotta focus:ring-terracotta/30 dark:bg-gray-700"
                             checked>
                         <span class="ml-1 rtl:mr-1">Remember me</span>
                     </label>
                     <a href="#" id="forgotPasswordLink"
-                        class="text-terracotta dark:text-terracotta hover:text-terracotta-dark font-medium transition hover:underline">
+                        class="text-black dark:text-white hover:text-terracotta font-medium transition hover:underline">
                         Forgot password?
                     </a>
                 </div>
 
                 <!-- Submit Button -->
                 <button type="submit" class="hoop-btn mt-3">
-                    <i class="fas fa-arrow-right-to-bracket mr-2 rtl:ml-2 rtl:mr-0"></i>
                     Sign In
                 </button>
 
@@ -556,7 +555,7 @@
                         <div class="w-full border-t border-cream dark:border-gray-700"></div>
                     </div>
                     <div class="relative justify-center flex text-xs">
-                        <span class="bg-white dark:bg-[#1E1E1E] px-4 py-0.5 text-dusk dark:text-gray-400 rounded-full">
+                        <span class="bg-white dark:bg-[#1E1E1E] px-4 py-0.5 text-black dark:text-white rounded-full">
                             or continue with
                         </span>
                     </div>
@@ -582,13 +581,10 @@
 
             <!-- ===== "NOT A MEMBER? SIGN UP" LINK ===== -->
             <div class="text-center mt-6 pt-4 border-t border-dashed border-cream dark:border-gray-700/40">
-                <a href="signup.html"
-                    class="inline-flex items-center text-terracotta dark:text-terracotta font-semibold hover:text-terracotta-dark transition group text-sm md:text-base gap-2">
-                    <i class="fas fa-user-plus"></i>
-                    <span>New to the flow? Sign up</span>
-                    <i
-                        class="fas fa-arrow-right group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform"></i>
-                </a>
+                <p class="text-sm md:text-base font-semibold text-black dark:text-white">
+                    New to the flow? 
+                    <a href="signup.html" class="text-terracotta dark:text-terracotta hover:text-terracotta-dark font-bold transition ml-1 rtl:mr-1 hover:underline">Sign Up</a>
+                </p>
             </div>
         </div>
     </div>
