@@ -551,13 +551,19 @@
     </nav>
 
     <!-- Hero Section - Hula Hoop Dance Focused -->
-    <section class="pt-28 pb-12 md:pt-36 md:pb-16 relative overflow-hidden">
+    <section class="min-h-screen flex items-center pt-24 pb-12 relative overflow-hidden bg-cream dark:bg-black">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-x-0 bottom-0 top-24 z-0">
+            <img src="assest/hero_hoop_bg.png" alt="Hula Hoop Flow" class="w-full h-full object-cover opacity-15 dark:opacity-20">
+            <!-- Smooth overlay gradient to ensure high text readability -->
+            <div class="absolute inset-0 bg-gradient-to-b from-cream/20 via-cream/60 to-cream dark:from-black/30 dark:via-black/70 dark:to-black"></div>
+            <!-- Decorative brand color blur spots -->
+            <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-terracotta/10 blur-3xl"></div>
+            <div class="absolute -bottom-40 -right-40 w-96 h-96 rounded-full bg-sage/10 blur-3xl"></div>
+        </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl mx-auto text-center animate-slide-up">
-                <div
-                    class="inline-flex items-center gap-2 px-4 py-2 bg-terracotta/10 rounded-full mb-6 border border-terracotta/25">
-                    <i class="fas fa-hand-sparkles text-terracotta"></i>
-                </div>
+
 
                 <h1
                     class="text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 leading-tight text-slate dark:text-white">
@@ -578,6 +584,31 @@
                     <a href="signup.html" class="btn-outline px-8 py-3 rounded-full inline-flex items-center gap-2 text-base bg-white/40 dark:bg-transparent backdrop-blur-sm">
                         <i class="fas fa-user-plus"></i> Register to Learn (Free)
                     </a>
+                </div>
+
+                <!-- Quick Explorer Navigation Flow -->
+                <div class="mt-10 pt-8 border-t border-slate/10 dark:border-white/10 max-w-xl mx-auto">
+                    <p class="text-xs uppercase tracking-wider font-semibold text-slate/60 dark:text-gray-400 mb-4">Quick Explorer</p>
+                    <div class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
+                        <a href="class.html" class="text-slate hover:text-terracotta dark:text-white dark:hover:text-terracotta transition flex items-center gap-2 group">
+                            <span class="w-8 h-8 rounded-full bg-terracotta/10 flex items-center justify-center text-terracotta group-hover:bg-terracotta group-hover:text-white transition duration-300">
+                                <i class="fas fa-graduation-cap text-xs"></i>
+                            </span>
+                            Explore Classes
+                        </a>
+                        <a href="service.html" class="text-slate hover:text-terracotta dark:text-white dark:hover:text-terracotta transition flex items-center gap-2 group">
+                            <span class="w-8 h-8 rounded-full bg-sage/10 flex items-center justify-center text-sage group-hover:bg-sage group-hover:text-white transition duration-300">
+                                <i class="fas fa-dumbbell text-xs"></i>
+                            </span>
+                            Discover Programs
+                        </a>
+                        <a href="book.html" class="text-slate hover:text-terracotta dark:text-white dark:hover:text-terracotta transition flex items-center gap-2 group">
+                            <span class="w-8 h-8 rounded-full bg-slate/10 dark:bg-white/10 flex items-center justify-center text-slate dark:text-white group-hover:bg-slate dark:group-hover:bg-white dark:group-hover:text-black group-hover:text-white transition duration-300">
+                                <i class="fas fa-ticket-alt text-xs"></i>
+                            </span>
+                            Booking Options
+                        </a>
+                    </div>
                 </div>
 
             </div>
