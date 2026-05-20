@@ -106,7 +106,22 @@
         }
 
         .dark body {
-            background-color: #2D2A3A;
+            background-color: #000000;
+        }
+
+        /* Dark mode alternating sections & navigation overrides */
+        .dark nav {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            border-color: rgba(109, 104, 117, 0.2) !important;
+        }
+        .dark section.bg-white,
+        .dark section[class*="bg-white"],
+        .dark section.dark\:bg-\[\#2D2A3A\],
+        .dark section.dark\:bg-\[\#252332\] {
+            background-color: #121212 !important;
+        }
+        .dark body::-webkit-scrollbar-track {
+            background: #121212;
         }
 
         body::-webkit-scrollbar {
@@ -133,7 +148,7 @@
         }
 
         .dark .service-card-premium {
-            background: #3D3B4D;
+            background: #1E1E1E;
             border-color: rgba(224, 122, 95, 0.3);
         }
 
@@ -230,7 +245,7 @@
         }
 
         .dark .dropdown-studio-menu {
-            background: #3D3B4D;
+            background: #1E1E1E;
             border-color: #E07A5F40;
         }
 
@@ -272,7 +287,7 @@
         }
 
         .dark .mobile-menu-studio {
-            background: #2D2A3A;
+            background: #121212;
         }
 
         .mobile-menu-studio.open {
@@ -305,7 +320,7 @@
 
         .dark .social-icon-studio:hover {
             background-color: #E07A5F;
-            color: #2D2A3A;
+            color: #121212;
         }
 
         .pricing-badge {
@@ -657,7 +672,7 @@
             </div>
             <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
                 <div
-                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all flex flex-col h-full">
+                    class="bg-white dark:bg-[#1E1E1E] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all flex flex-col h-full">
                     <h3 class="text-xl font-bold">Flow Starter</h3>
                     <div class="text-3xl font-black text-terracotta my-3">$49<span
                             class="text-sm font-normal">/mo</span></div>
@@ -669,7 +684,7 @@
                     <button class="btn-outline w-full py-2 rounded-full mt-auto">Get Started</button>
                 </div>
                 <div
-                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border-2 border-terracotta shadow-xl relative transform scale-105 z-10 flex flex-col h-full">
+                    class="bg-white dark:bg-[#1E1E1E] rounded-3xl p-6 text-center border-2 border-terracotta shadow-xl relative transform scale-105 z-10 flex flex-col h-full">
                     <div
                         class="absolute -top-3 left-1/2 -translate-x-1/2 bg-terracotta text-white text-xs px-3 py-1 rounded-full">
                         Most Popular</div>
@@ -685,7 +700,7 @@
                     <button class="btn-primary w-full py-2 rounded-full mt-auto">Join Unlimited</button>
                 </div>
                 <div
-                    class="bg-white dark:bg-[#3D3B4D] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all flex flex-col h-full">
+                    class="bg-white dark:bg-[#1E1E1E] rounded-3xl p-6 text-center border border-sage/20 shadow-md hover:shadow-xl transition-all flex flex-col h-full">
                     <h3 class="text-xl font-bold">Pro Pass</h3>
                     <div class="text-3xl font-black text-terracotta my-3">$149<span
                             class="text-sm font-normal">/mo</span></div>

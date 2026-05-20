@@ -90,7 +90,22 @@
         }
 
         .dark body {
-            background-color: #2D2A3A;
+            background-color: #000000;
+        }
+
+        /* Dark mode alternating sections & navigation overrides */
+        .dark nav {
+            background-color: rgba(18, 18, 18, 0.95) !important;
+            border-color: rgba(109, 104, 117, 0.2) !important;
+        }
+        .dark section.bg-white,
+        .dark section[class*="bg-white"],
+        .dark section.dark\:bg-\[\#2D2A3A\],
+        .dark section.dark\:bg-\[\#252332\] {
+            background-color: #121212 !important;
+        }
+        .dark body::-webkit-scrollbar-track {
+            background: #121212;
         }
 
         body::-webkit-scrollbar {
@@ -116,7 +131,7 @@
         }
 
         .dark .studio-card {
-            background: #3D3B4D;
+            background: #1E1E1E;
             border-color: rgba(224, 122, 95, 0.25);
         }
 
@@ -199,7 +214,7 @@
         }
 
         .dark .dropdown-studio-menu {
-            background: #3D3B4D;
+            background: #1E1E1E;
             border-color: #E07A5F40;
         }
 
@@ -241,7 +256,7 @@
         }
 
         .dark .mobile-menu-studio {
-            background: #2D2A3A;
+            background: #121212;
         }
 
         .mobile-menu-studio.open {
@@ -274,7 +289,7 @@
 
         .dark .social-icon-studio:hover {
             background-color: #E07A5F;
-            color: #2D2A3A;
+            color: #121212;
         }
 
         .avatar-circle {
@@ -311,7 +326,7 @@
         }
 
         .dark .timeline-dot::before {
-            border-color: #2D2A3A;
+            border-color: #121212;
         }
 
         .team-card {
